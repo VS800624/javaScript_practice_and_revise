@@ -228,8 +228,27 @@ function getFact(num) {
 
 // Create a function that accepts a string and returns its reverse
 function strReverse(str) {
-    
+   return str.split('').reverse().join("");
 }
 
+// console.log(strReverse("john"))
 
+// create a function that gives largest number in the array
+function largestNum(arr) {
+    let max = 0;
+    for(let i = 1; i < arr.length ; i++){
+        if (arr[i] > arr[max]) {
+            max = i;
+        }
+    }
+    return arr[max]
+}
+// console.log(largestNum([5,7,6,3,8]))
+
+// write a function that string to a kebab case.
+function kebab(str) {
+    // return str.split(' ').join('-')
+    return str.replaceAll(' ', '-')
+}
+console.log(kebab("hello how are you"))
 
