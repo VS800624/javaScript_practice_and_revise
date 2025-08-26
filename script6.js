@@ -40,3 +40,32 @@
 // }
 // const result = foo()
 // console.log(result)
+
+// console.log( [1,2]==[1,2])
+
+//  const user1={
+// name: 'john',
+// age:25,
+// address:{
+// city:'Mumbai',
+// state:'Mahrashtra'
+// },}
+// const user2 = user1
+// user2.name = 'Ramesh'
+// user2.address.city='Pune'
+// console.log(user1)
+// console.log(user2)
+
+//filter out all values less than 3
+// const numbers= [0,1,2,3,4,5,6] 
+
+// filterNumber = numbers.filter((number) => number < 3 )
+// console.log(filterNumber)
+
+//  create a string variable add a string in lowerCase and convert first letter of each to uppercase OR can you transform it into array.
+let str = "hello how are you"
+let str2 = str.split(" ").map((word) => word[0].toUpperCase() + word.slice(1))
+console.log(str2.join(" "))
+
+
+// 45. PROJECT:: create a TODO list in which there will be input and add button delete also
