@@ -19,3 +19,11 @@
 // } else {
 //     console.log(" a is not equal to b")
 // } 
+
+// function fetch (){
+//     a = 6;
+//     console.log(a)
+// }
+
+// let a;
+// fetch()    // ans 7

@@ -21,7 +21,7 @@ Q) How JS code is executed?
 1. Whenever any JavaScript code is executed an execution context is created and it is the Global Execution Context.
 2. An Execution Context is basically a box which has two components called Memory Component(Variable Environment) and Code Component(Thread Of Execution).
 3. The Execution context is created in two phases
-   a. Memory Creation Phase : In this Phase, Memory is allocated to all the variables and functions which are present in the           global scope. Special keyword Undefined in case of variables and literally the whole function in case of functions.
+   a. Memory Creation Phase : In this Phase, Memory is allocated to all the variables and functions which are present in the global scope. Special keyword Undefined in case of variables and literally the whole function in case of functions.
    b. Code Execution Phase : In this Phase, code is executed line by line.
 
 4. Whenever there is a function invocation an all new execution context is created and same process is followed again.
@@ -58,3 +58,55 @@ Q) How function works in JS ?
 4. Whenever there is a function declaration in the code, a separate local execution context gets created having its own phases and is pushed into the call stack.
 5. Once the function ends, the EC (Execution Context) is removed from the call stack.
 6. When the program ends, even the global EC is pulled out of the call stack.
+
+Q) Scope Chain ? 
+
+lexical environment is the local memory + reference to the lexical environment of parent.
+
+1. Scope of a variable is directly dependent on the lexical environment.
+2. Whenever an execution context is created, a lexical environment is created. Lexical environment is the local memory along with the lexical environment of its parent. Lexical as a term means in hierarchy or in sequence.
+3. Having the reference of parent's lexical environment means, the child or the local function can access all the variables and functions defined in the memory space of its lexical parent.
+4. The JS engine first searches for a variable in the current local memory space, if its not found here it searches for the variable in the lexical environment of its parent, and if its still not found, then it searches that variable in the subsequent lexical environments, and the sequence goes on until the variable is found in some lexical environment or the lexical environment becomes NULL.
+5. The mechanism of searching variables in the subsequent lexical environments is known as Scope Chain. If a variable is not found anywhere, then we say that the variable is not present in the scope chain.
+
+Q) Temporal Dead Zone ?
+
+1. let and const are hoisted but its memory is allocated at other place than window (global execution context) which cannot be accessed before initialization.
+2. Temporal Dead Zone exists until variable is declared and assigned a value.
+3. window.variable OR this.variable will not give value of variable defined using let or const.
+4. We cannot redeclare the same variable with let/const(even with using var the second time).
+5. const variable declaration and initialization must be done on the same line.
+6. There are three types of error: [1] referenceError: while trying to access variable which is not there in global memory {or variable does not have memory allocation} [2] typeError {given when we change type that is not supposed to be changed} [3] syntaxError {when proper syntax(way of writing a statement) is not used}.
+7. Use const wherever possible followed by let, Use var as little as possible(only if you have to). It helps avoid error.
+8. Initializing variables at the top is good idea, helps shrinks TDZ to zero.
+
+Q) Block Scope amd Shadowing?
+
+Block :- It is used to combine multiple statement into one statement so that we can use it at those places where javascript expects to have single statement.
+Scope :- scope of a variable or a function is the place where these are accessible.
+Block scope :-  The variables and function present within the scope of a block section. And block follows the lexical scope chain pattern while accessing the variable.
+Shadowing :-  Providing same name to the variable as of those variable which are present in outer scope.
+
+Important points:-
+
+1. Code inside curly bracket is called block.
+2. Multiple statements are grouped inside a block so it can be written where JS expects single statements like in if, else, loop, function etc.
+3. Block values are stored inside separate memory than global. They are stored in block. (the reason let and const are called block scope)
+4. Shadowing of variables using var, let and const.
+5. The shadow should not cross the scope of original otherwise it will give error.
+6. shadowing let with var is illegal shadowing and gives error.
+7. var value is stored in nearest outer function or global scope and hence can be accessed outside block as well whereas same is not the case with let and const.
+
+Closure :Function bundled with its lexical environment is known as a closure. Whenever function is returned, even if its vanished in execution context but still it remembers the reference it was pointing to. Its not just that function alone it returns but the entire closure.
+
+In other words Closure is a combination of a function and its lexical scope bundled together forms a closure.
+
+Uses of Closures:
+ - Modules Design Pattern
+ - Curring
+ - Functions like once
+ - memozize
+ - maintaining sate in async world
+ - setTimeouts
+ - Iterators
+ - and many more...
