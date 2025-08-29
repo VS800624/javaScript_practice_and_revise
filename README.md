@@ -42,7 +42,7 @@ The code is executed line by line.
 Hoisting is not about physically moving code to the top, but rather about how JavaScript allocates memory for variables and functions during the memory creation phase of the execution context. This mechanism allows for certain behaviors like using functions before they appear in the code, but it's crucial to understand that variables are initialized as 'undefined' until they're assigned a value during code execution. You can call a function before its declaration in the code because the entire function is available in memory from the start. Trying to access a variable before its declaration will result in 'undefined'.
 Function expressions and arrow functions, being treated as variables, hence cannot be called before their declaration in the code. Variable and function declarations are processed before any code is executed. However, only the declarations are processed, not the initializations. This gives the impression that declarations are "moved to the top" of their scope, but it's more accurate to say they're processed early in the execution context's creation.
 
-Points to be note :
+# Points to be note :
 1. In JS, before the code is executed, the variables get initialized to undefined.
 2. Arrow functions enact as variables and get "undefined" during the memory creation phase while functions actually get run.
 3. Hoisting: Mechanism in JS where the variable declarations are moved to the top of the scope before execution. Therefore it is possible to call a function before initializing it.
@@ -87,7 +87,7 @@ Scope :- scope of a variable or a function is the place where these are accessib
 Block scope :-  The variables and function present within the scope of a block section. And block follows the lexical scope chain pattern while accessing the variable.
 Shadowing :-  Providing same name to the variable as of those variable which are present in outer scope.
 
-Important points:-
+# Important points:-
 
 1. Code inside curly bracket is called block.
 2. Multiple statements are grouped inside a block so it can be written where JS expects single statements like in if, else, loop, function etc.
@@ -97,11 +97,12 @@ Important points:-
 6. shadowing let with var is illegal shadowing and gives error.
 7. var value is stored in nearest outer function or global scope and hence can be accessed outside block as well whereas same is not the case with let and const.
 
-Closure :Function bundled with its lexical environment is known as a closure. Whenever function is returned, even if its vanished in execution context but still it remembers the reference it was pointing to. Its not just that function alone it returns but the entire closure.
+# Closure:
+Function bundled with its lexical environment is known as a closure. Whenever function is returned, even if its vanished in execution context but still it remembers the reference it was pointing to. Its not just that function alone it returns but the entire closure.
 
 In other words Closure is a combination of a function and its lexical scope bundled together forms a closure.
 
-Important things about closure:-
+# Important things about closure:-
    1. An inner function can be directly called using two parenthesis ()().
    2. Even parameters can be passed this way (Remember that the function needs to be returned to do this)
    3. Closures can also be used for data hiding and encapsulation. So other code cannot access this value.
@@ -118,3 +119,66 @@ Uses of Closures:
  - setTimeouts
  - Iterators
  - and many more...
+
+ 
+Function statement / Function Declaration : the function is normally defined and can be used later on
+Function expression : the function is first created and assigned to a variable so that it can be called by its variable name and unless it is defined, it cannot be executed otherwise it throws out "Uncaught TypeError"
+
+Anonymous function : function where there is no need to define name for the function, it just can be assigned to variable
+
+Named function : Normal function with its name assigned to a variable !!In this case you cannot call function by its name in outer scope!! (Scope Chain)
+
+first class Functions / first class citizens : 
+1) used as values
+2) can be passed as argument
+3) can be executed inside a closured function
+4) can be taken as return
+
+callback function : 
+
+A callback function in JavaScript is simply a function that is passed as an argument to another function and is executed later, usually after some task is completed.
+In simple words:
+You give a function to another function, and that function will "call it back" when needed.
+
+1. Function that is passed on as argument to another function is called callback function.
+2. setTimeout helps turn JS which is single threaded and synchronous into asynchronous.
+3. Event listeners can also invoke closures with scope.
+4. Event listeners consume a lot of memory which can potentially slow down the website therefore it is good practice to remove if it is not used
+
+note: the code of execution is from right to left in js.
+
+# Event Loop
+
+In JavaScript, the event loop, microtask queue, callback queue, and call stack are all key components that help manage the asynchronous nature of the language.
+
+Call Stack:
+
+The call stack is a data structure that keeps track of the function calls in your code. It follows the Last In, First Out (LIFO) principle, meaning the last function that gets pushed onto the stack is the first one to be popped off when the function completes.
+Callback Queue (Task Queue):
+
+The callback queue, also known as the task queue, holds tasks (callbacks or events) that are ready to be executed. These tasks usually come from asynchronous operations, such as DOM events, HTTP requests, or timers.
+Event Loop:
+
+The event loop is responsible for continuously checking the call stack and the callback queue. If the call stack is empty, the event loop takes the first task from the callback queue and pushes it onto the call stack for execution.
+Microtask Queue:
+
+The microtask queue holds tasks that are also ready to be executed but has a higher priority than the callback queue. Microtasks are usually scheduled by JavaScript promises (the callback function which come through promises), mutation observers, and other similar mechanisms and everything else will go to callback queue. Callback queue also known as task queue.
+Here's how they work together:
+
+When an asynchronous operation is encountered, such as a setTimeout or a Promise, the callback associated with that operation is sent to the callback queue after the specified time or when the Promise settles.
+
+When the call stack is empty (no functions being executed), the event loop takes the first task from the microtask queue and pushes it onto the call stack.
+
+If the microtask queue is empty, the event loop looks at the callback queue and pushes the first task onto the call stack.
+
+This process repeats, allowing JavaScript to handle asynchronous operations without blocking the main thread.
+
+Understanding these concepts is crucial for writing efficient and responsive asynchronous JavaScript code, as it helps you manage the order of execution and prevent blocking the user interface.
+
+Important Points:-
+1. Browser has superpowers that are lent to JS engine to execute some tasks, these superpowers include web API's such as console, location, DOM API, setTimeout, fetch, local storage.
+2. Callback functions and event handlers are first stored in Web API environment and then transferred to callback queue.
+3. Promises and mutation observer are stored in API environment and then transferred to microtask queue.
+4. Event loop continuously observes call stack and when it is empty it transfers task to call stack.
+5. Micro task is given priority over callback tasks.
+6. Too many micro tasks generated can cause Starvation (nit giving time to callback tasks to execute).
