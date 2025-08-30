@@ -1,5 +1,5 @@
 
-// Q) find the count of the characters un the string
+// Q) find the count of the characters in the string
 const str = "hare krishna hare krishna" 
 // note a string is array of characters
 

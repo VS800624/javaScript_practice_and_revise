@@ -160,11 +160,11 @@ The callback queue, also known as the task queue, holds tasks (callbacks or even
 Event Loop:
 
 The event loop is responsible for continuously checking the call stack and the callback queue. If the call stack is empty, the event loop takes the first task from the callback queue and pushes it onto the call stack for execution.
+
 Microtask Queue:
+The microtask queue holds tasks that are also ready to be executed but has a higher priority than the callback queue. Microtasks are usually scheduled by JavaScript promises (the callback function which come through promises), mutation observers, and other similar mechanisms and everything else will go to callback queue. 
 
-The microtask queue holds tasks that are also ready to be executed but has a higher priority than the callback queue. Microtasks are usually scheduled by JavaScript promises (the callback function which come through promises), mutation observers, and other similar mechanisms and everything else will go to callback queue. Callback queue also known as task queue.
 Here's how they work together:
-
 When an asynchronous operation is encountered, such as a setTimeout or a Promise, the callback associated with that operation is sent to the callback queue after the specified time or when the Promise settles.
 
 When the call stack is empty (no functions being executed), the event loop takes the first task from the microtask queue and pushes it onto the call stack.
@@ -182,3 +182,63 @@ Important Points:-
 4. Event loop continuously observes call stack and when it is empty it transfers task to call stack.
 5. Micro task is given priority over callback tasks.
 6. Too many micro tasks generated can cause Starvation (nit giving time to callback tasks to execute).
+
+ ┌─────────────────────┐
+ │      Call Stack     │
+ └─────────┬───────────┘
+           │
+           ▼
+ ┌─────────────────────┐
+ │   Web APIs (timers) │
+ │   setTimeout (0ms)  │
+ │   setInterval (0ms) │
+ └─────────┬───────────┘
+           │
+           ▼
+ ┌─────────────────────┐         ┌─────────────────────┐
+ │   Microtask Queue   │         │   Callback Queue    │
+ │   Promise cb        │         │   Timeout cb        │
+ └─────────┬───────────┘         │   Interval cb       │
+           │                      └─────────┬───────────┘
+           ▼                                │
+ ┌─────────────────────┐                    ▼
+ │     Event Loop      │────────────────────┘
+ └─────────────────────┘
+
+
+Start
+End
+Promise
+Timeout
+Interval
+Interval
+Interval ...
+
+JS Engine :-
+1. JS runtime environment contains all elements required to run JS.
+2. It contains JS engine, set of API's, callback queue, microtask queue, event loop.
+3. JS engine is a piece of code.
+4. Process includes Parsing ---> Compilation -----> Execution.
+5. Parsing breaks code into tokens and converts it into AST(Abstract Syntax Tree).
+6. Modern JS engine follows JIT compilation, it interprets while it optimizes code as much as it can.
+7. Execution and Compilation are done together.
+8. Execution has Garbage collector and other optimization such as inlining, copy elusion, inline caching etc that optimizes the memory space which is used by the JS Engine.
+
+Basic idea about Mark & Sweep Algo:
+It comprise of 2 phases - 
+1. Mark phase
+2. Sweep phase
+
+All objects are marked as 0 initially (at creation) and in mark phase the objects that will be accessible are marked as 1 (reachable) by a DFS graph traversal.
+
+During sweep phase, the objects marked with 0 are removed from heap memory. and also all reachable objects are again initialized with 0 (made unreachable) because the algorithm will run again.
+
+So, it's basically tracing garbage collector concept.
+
+We have JS Runtime Environment so whenever you execute any piece of js code it needs a container which has everything require to run a JS code that was the JS Runtime Environment  the browser has a runtime environment , node.js has a js runtime environment and it constitutes of the heart of the JS Runtime Environment which is the JS Engine it also has access to APIs call back queue , event loop and lot of other stuffs it depends on the JS Runtime Environment there could be different things inside different JS Runtime Environment .
+JS Engine has many phases , ith has three phases :-  the code was first went through the parsing phase , the compilation phase and then the execution.
+And in the parsing phase the tokens are generated and after the tokens, the syntax parser basically parse the whole code and then converts it into a AST (Abstract Syntax Tree) now this AST then is passed on the interpreter , JS is a JIT (just in time) Compilation language (Interpreter + Compiler) so we have a interpreter and compiler , AST is goes to interpreter,  interpreter produces the bit code which is then executed with the help of memory heap and call stack, and this compiler is like consistently working upon optimizing the code as much as possible , we have a garbage collector which basically does its job of collecting garbage and optimize the memory space which is used by the JS Engine.
+
+setTimeout :-
+1. The setTimeout function stores it in the callback queue which is executed only after call stack is empty, even if setTimeout is set to 0ms. 
+2. setTimeout ensures that minimum it will take the time mentioned because it may be paused due to call stack not empty.
