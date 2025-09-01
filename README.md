@@ -242,3 +242,30 @@ And in the parsing phase the tokens are generated and after the tokens, the synt
 setTimeout :-
 1. The setTimeout function stores it in the callback queue which is executed only after call stack is empty, even if setTimeout is set to 0ms. 
 2. setTimeout ensures that minimum it will take the time mentioned because it may be paused due to call stack not empty.
+
+# High order function
+
+A higher-order function is a function that does one or both of the following:
+- Takes one or more functions as arguments.
+- Returns a function as its result.
+
+Breaking Down:
+"Khana khane ke baad bartan andar rakh" is like a higher-order function.
+"Bartan andar rakh" is like the callback function.
+
+How It Works:
+The higher-order function (khana khane ke baad bartan andar rakh) does something (e.g., eating food) and then calls another function when it’s done (bartan andar rakh).
+The callback function (bartan andar rakh) is the action that gets executed after the main task is completed.
+
+In this analogy:
+Khana khana (eating food) is the main task.
+Bartan andar rakh (putting the dishes away) is the additional task that happens after, which is like the callback function being executed after the main function is done.
+
+So, "bartan andar rakh" is acting like a callback function that gets executed after the main action (eating) is completed.
+
+Important points:-
+1. Follow DRY(Don't Repeat Yourself) principle while coding.
+2. Use function to stop writing repeating line of codes.
+3. Function that takes another function as argument(callback function) is known as Higher order functions.
+4. It is this ability that function can be stored, passed and returned,  they are called first class citizens.
+5. If we use Array.property.function-name. This function is accessible to any array in your code.
