@@ -9,12 +9,12 @@ Execution context has two component
 -This is the place where all variables and functions are stored as key value pairs. eg-{key: value ||  n:2;} 
 
  2)code component[Thread of execution]
--This is the place where code is executed one line at a time
+-This is the place where code is executed one line at a time(i.e line by line).
 
 Note-
 *JavaScript is a synchronous single-threaded language
 
--Single threaded means JavaScript can execute once command at a time
+-Single threaded means JavaScript can execute once command at a time.
 -Synchronous single-threaded that means JavaScript can execute one command at a time in a specific order.
 
 Q) How JS code is executed?
@@ -269,3 +269,18 @@ Important points:-
 3. Function that takes another function as argument(callback function) is known as Higher order functions.
 4. It is this ability that function can be stored, passed and returned,  they are called first class citizens.
 5. If we use Array.property.function-name. This function is accessible to any array in your code.
+
+--> What is Inheritance of an Object in Javascript?
+  When a new object is trying to access properties and methods of another old object, because this new object might be created from the old objects reference.
+Example :
+object1 = { city:'mumbai' };
+object2 = Object.create(object1);
+object2.name = 'Shiv';
+console.log(object2.name + 'is from' + object2.city); // here when one couldn't find city property inside object2, it goes to find this property in the inherited object1.
+This is called inheritance of an object in javascript. This type of inheritance is different from the classical inheritance of oops. This type of inheritance is provided by Prototype Inheritance.
+
+1. map method is used when we want transformation of whole array.
+2. filter is used when we want to filter the arrar to obtain required value.
+3. reduce is used when we want to reduce the array to single value eg (max, min, avg, sum, difference etc). If you have any array and you need to iterate over that array and come up to a single value out of it use reduce there.
+4. reduce passes two arguments one function(which includes accumulator and initial value as argument itself) and another initial value of accumulator.
+
