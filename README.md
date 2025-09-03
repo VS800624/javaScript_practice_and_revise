@@ -280,7 +280,7 @@ console.log(object2.name + 'is from' + object2.city); // here when one couldn't 
 This is called inheritance of an object in javascript. This type of inheritance is different from the classical inheritance of oops. This type of inheritance is provided by Prototype Inheritance.
 
 1. map method is used when we want transformation of whole array.
-2. filter is used when we want to filter the arrar to obtain required value.
+2. filter is used when we want to filter the array to obtain required value.
 3. reduce is used when we want to reduce the array to single value eg (max, min, avg, sum, difference etc). If you have any array and you need to iterate over that array and come up to a single value out of it use reduce there.
 4. reduce passes two arguments one function(which includes accumulator and initial value as argument itself) and another initial value of accumulator.
 
