@@ -54,3 +54,7 @@ console.log(a);
 // variables declared with var are function-scoped or globally scoped, but they are not block-scoped like variables declared with let or const. So, the var a declared inside the block {} will override the outer var a declaration, and the value of a will be 10 when logged outside the block.
 // var variable of function scoped overwrites the value of Global Scoped variable.
 // Scope for arrow function is also same!
+
+var num = 9
+ var num = 10
+ console.log(num)

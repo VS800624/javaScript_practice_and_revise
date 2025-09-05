@@ -118,3 +118,25 @@ function fun() {
 // So every prototype in java script eventually points  finally to the Object.prototype , This is called Prototype chaining, and using this chaining method we can create a custom prototype inheritance between functions.
 
 
+String.prototype.youAreAmazing = () => {
+    return "You are amazing my friend"
+}
+
+const who = "viewer"
+
+console.log(who.youAreAmazing());
+
+
+// In JavaScript, every type has a prototype object.
+// All string values ("hello", "world", etc.) inherit from String.prototype.
+// By adding youAreAmazing, we’ve given all strings a new method.
+// Normally, primitives don’t have methods.
+// But when you call a method on a string, JavaScript does something special:
+// It wraps the primitive string "viewer" in a temporary String object.
+// That object inherits from String.prototype.
+// So it finds our custom youAreAmazing method.
+// Calls it and returns → "You are amazing my friend".
+
+// key points:
+// By extending String.prototype, you add methods to all strings.
+// Even primitive strings can use them, because JS auto-wraps primitives in objects when you access methods.
