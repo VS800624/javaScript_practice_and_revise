@@ -44,7 +44,7 @@ Function expressions and arrow functions, being treated as variables, hence cann
 
 # Points to be note :
 1. In JS, before the code is executed, the variables get initialized to undefined.
-2. Arrow functions enact as variables and get "undefined" during the memory creation phase while functions actually get run.
+2. Arrow functions act as variables and get "undefined" during the memory creation phase while functions actually get run.
 3. Hoisting: Mechanism in JS where the variable declarations are moved to the top of the scope before execution. Therefore it is possible to call a function before initializing it.
 4. Whenever a JS program is run, a global execution block is created, which comprises of 2: Memory creation and Code execution.
 5. Variable declarations are scanned and are made undefined
@@ -296,3 +296,21 @@ This is called inheritance of an object in javascript. This type of inheritance 
 9. We can have multiple catch based on requirement and then a general catch at the end.
 10. Always remember to return a value in the promise chain for the next .then to use .
 11. If it returns a value => It will be  used as an argument in next function. If it is a promise then the next .then in the promise chain is attached to the promise returned by the current callback function.
+
+Async and await: 
+
+Promise: Think of a promise as a guarantee made by someone (like a function) to do something and provide you with the result later. It's like ordering food at a restaurant. You get a promise (receipt) saying your order will be ready soon. You can wait for it (.then()) or check on it later (.catch()).
+
+Async/Await: Async/await is like asking someone (a function) to do something for you, but instead of waiting for them to finish right there, you tell them you'll do something else while they work. It's like asking a friend to pick up your order from the restaurant. You can go do other things (like order a drink) while your friend (the async function) waits for the food (awaits the promise).
+
+• Promises p1 and p2 start their timers immediately when created (not when you await them).
+• await pauses the async function until the promise resolves, but doesn't restart the timer.
+• If you await a longer promise first, the shorter one resolves in the background, but you can’t act on it until the longer one finishes.
+• If you await the shorter first, you process it sooner, then wait for the remaining time of the longer promise.
+
+• Async/await used for handling promises
+• Async always return a promise
+° Await can only used inside an async function
+° Can only write await keyword infront of a promise
+° While awaiting JS Engine does not actually wait rather the function is suspended and call stack is free for other stuffs but it looks like program is waiting at that point
+° Use try catch for Error handling and can also use  . Catch() method
