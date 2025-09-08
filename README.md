@@ -71,7 +71,7 @@ lexical environment is the local memory + reference to the lexical environment o
 
 Q) Temporal Dead Zone ?
 
-1. let and const are hoisted but its memory is allocated at other place than window (global execution context) which cannot be accessed before initialization.
+1. let and const are hoisted but its memory is allocated at other place(script or blocked scoped memory) than window (global execution context) which cannot be accessed before initialization.
 2. Temporal Dead Zone exists until variable is declared and assigned a value.
 3. window.variable OR this.variable will not give value of variable defined using let or const.
 4. We cannot redeclare the same variable with let/const(even with using var the second time).
@@ -79,7 +79,7 @@ Q) Temporal Dead Zone ?
 6. There are three types of error: [1] referenceError: while trying to access variable which is not there in global memory {or variable does not have memory allocation} [2] typeError {given when we change type that is not supposed to be changed} [3] syntaxError {when proper syntax(way of writing a statement) is not used}.
 7. Use const wherever possible followed by let, Use var as little as possible(only if you have to). It helps avoid error.
 8. Initializing variables at the top is good idea, helps shrinks TDZ to zero.
-
+ 
 Q) Block Scope amd Shadowing?
 
 Block :- It is used to combine multiple statement into one statement so that we can use it at those places where javascript expects to have single statement.
@@ -141,7 +141,7 @@ In simple words:
 You give a function to another function, and that function will "call it back" when needed.
 
 1. Function that is passed on as argument to another function is called callback function.
-2. setTimeout helps turn JS which is single threaded and synchronous into asynchronous.
+2. setTimeout allows JavaScript (which is single-threaded and synchronous) to schedule tasks asynchronously using the event loop and callback queue."
 3. Event listeners can also invoke closures with scope.
 4. Event listeners consume a lot of memory which can potentially slow down the website therefore it is good practice to remove if it is not used
 
@@ -311,6 +311,34 @@ Async/Await: Async/await is like asking someone (a function) to do something for
 • Async/await used for handling promises
 • Async always return a promise
 ° Await can only used inside an async function
-° Can only write await keyword infront of a promise
+° Can only write await keyword in front of a promise
 ° While awaiting JS Engine does not actually wait rather the function is suspended and call stack is free for other stuffs but it looks like program is waiting at that point
 ° Use try catch for Error handling and can also use  . Catch() method
+
+# this keyword
+
+ JavaScript's "this" keyword can be confusing for many and behaves differently in various scenarios.
+ The behavior of the "this" keyword depends on the context, such as whether it's in a function, global space, or an arrow function.
+ In the global space, the value of "this" is the global object, which can vary depending on the JavaScript runtime environment (e.g., window in browsers, Global in Node.js).
+ Inside a function, the value of "this" can be undefined in strict mode or the global object in non-strict mode.
+ JavaScript uses a mechanism called "this substitution," where "this" is replaced with the global object when it's undefined or null in non-strict mode.
+ Inside an object's method, "this" refers to the object itself where the method is called.
+ "call," "apply," and "bind" are important functions used to manipulate the value of "this" when calling methods and sharing them between objects.
+ It's essential to understand "call," "apply," and "bind" to effectively control the value of "this" in JavaScript methods.
+ In global space, the 'this' keyword refers to the global object (e.g., 'window' in the browser).
+ In strict mode, 'this' inside a function is undefined; in non-strict mode, it refers to the global object.
+ Understanding "this" substitution: When 'this' is undefined or null inside a function, it becomes the global object.
+ Inside an object's method, 'this' refers to the object itself.
+ The 'call' method can be used to invoke a function with a specific 'this' context.
+ Arrow functions do not have their own 'this' binding and take the value of the enclosing lexical context.
+ In the context of DOM elements, 'this' refers to the specific HTML element being interacted with.
+
+Points to remember:
+1. "this" in global scope always points to the globalObject (globalObject depends on javascript runtime env)
+2. "this" in a function depends on 2 things
+    a. strict / non strict mode (in strict mode, "this" is undefined, in non strict mode, "this substitution" takes place and "this" points to globalObject)
+    b. how the function is being invoked (if we invoke the function using the global object in strict mode, then "this" will point to that globalObject)
+3. "this" in a method always points to the object that is used to invoke the method.
+4. call, apply & bind are used to share a method with another object (hence the "this" keyword reference would also change accordingly)
+5. "this" inside arrow function refers to the enclosing lexical context
+6. "this" in DOM points to the HTML element itself on which it is being used

@@ -12,7 +12,7 @@ var b = function () {
     console.log("b called")
 }
 
-// difference between creating functions with these two types is hoisting , if we called a() and b() before even creating them in code in the output function b will throw an error that's the difference between both of them. So, during the hoisting phase , during the memory creation phase a is crated a memory and the function is assigned to a but ib the case of function expression the b is treated like any other variable it is assigned undefined initially until the code hits this function line  itself in coding phase. When the JS engine executes this  line by line and it reaches this function then only this function this function is assigned to variable b until then it is undefined . so here the value of b is undefined and you cannot call b like that that is the major difference between function statement and function variable
+// difference between creating functions with these two types is hoisting , if we called a() and b() before even creating them in code in the output function b will throw an error that's the difference between both of them. So, during the hoisting phase , during the memory creation phase a is crated a memory and the function is assigned to a but in the case of function expression the b is treated like any other variable it is assigned undefined initially until the code hits this function line  itself in coding phase. When the JS engine executes this  line by line and it reaches this function then only this function is assigned to variable b until then it is undefined . so here the value of b is undefined and you cannot call b like that that is the major difference between function statement and function variable
 
 
 // Anonymous function 
