@@ -143,7 +143,7 @@ You give a function to another function, and that function will "call it back" w
 1. Function that is passed on as argument to another function is called callback function.
 2. setTimeout allows JavaScript (which is single-threaded and synchronous) to schedule tasks asynchronously using the event loop and callback queue."
 3. Event listeners can also invoke closures with scope.
-4. Event listeners consume a lot of memory which can potentially slow down the website therefore it is good practice to remove if it is not used
+4. Event listeners consume a lot of memory which can potentially slow down the website therefore it is good practice to remove if it is not used.
 
 note: the code of execution is from right to left in js.
 
@@ -181,7 +181,7 @@ Important Points:-
 3. Promises and mutation observer are stored in API environment and then transferred to microtask queue.
 4. Event loop continuously observes call stack and when it is empty it transfers task to call stack.
 5. Micro task is given priority over callback tasks.
-6. Too many micro tasks generated can cause Starvation (nit giving time to callback tasks to execute).
+6. Too many micro tasks generated can cause Starvation (not giving time to callback tasks to execute).
 
  ┌─────────────────────┐
  │      Call Stack     │
