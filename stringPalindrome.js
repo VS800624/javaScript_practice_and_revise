@@ -34,6 +34,8 @@ function isPalindrome(str) {
     return "Yes, It is Palindrome"
 }
 
+// Note: In JavaScript, strings are array-like objects — they have an index (str[0], str[1] …) and a .length property, just like arrays.
+
 // with for loop
 // function isPalindrome(str) {
 //     str = str.toLowerCase()
@@ -48,6 +50,30 @@ function isPalindrome(str) {
 
 //     console.log("Yes, It is Palindrome")
 // }
+
+// function validatePalindrome(str) {
+//     // sanitize -> keep only letters and numbers
+//     str = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+//     // if string becomes empty (only non-alphanumeric were present)
+//     if (str.length === 0) return true;
+
+//     // check palindrome
+//     return str === str.split("").reverse().join("");
+// }
+
+function validatePalindrome(str) {
+    str = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+    if (str.length === 0) return true;
+    let arr = str.split("");
+    let reverse = [];
+    for (let i = arr.length - 1; i >= 0; i--) {
+        reverse.push(arr[i]);
+    }
+    return arr.join("") === reverse.join("");
+}
+
+console.log(validatePalindrome(" "))
 
 console.log(isPalindrome("A man, a plan, a canal"))
 console.log(isPalindrome("racecar"))

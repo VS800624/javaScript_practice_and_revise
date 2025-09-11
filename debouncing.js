@@ -25,6 +25,16 @@ const betterFunction = debounce(getData, 300)
 
 //  In short:
 // Debouncing is used to limit how often a function runs, by making it wait until the user stops triggering it for a given time.
+// it ensures that the function only runs after a certain period of inactivity following the last event.
+
+// Throttling: 
+// Runs at regular intervals no matter how many times you trigger it.
+// Ensures the function runs at most once every X milliseconds.
+// Even if  an event happens many times (like scrolling or resizing), throttling makes sure the function runs only once every fixed time period (like once every 500ms).
+// Like replying at most once every 5 seconds while they’re talking, even if they keep saying stuff.
+// eg: Throttling button click me use kia jata he taki user jitne baar bhi click kare toh vo us delay ke baad hi apply ho.
+// What throttling does: ensures that a function runs at most once in a fixed delay (say 2 seconds), no matter how many times the event happens in between.
+// In button clicks: if the user clicks the button very fast (10 times in 2 seconds), throttling will make sure the handler runs only once every 2 seconds.
 
 // Important Points:
 // If you run getData() directly inside setTimeout, the this will not point to obj anymore. It will default to window (or undefined in strict mode).
