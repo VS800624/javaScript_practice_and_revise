@@ -36,3 +36,32 @@ console.log(numbers[9])
 // Q.5) 
 const data = [..."Apple"]
 console.log(data)
+
+//Q.6)
+console.log(20 + 30 + "10")
+
+// key points: 
+// Most operators are Left-to-right.
+
+// Special right-to-left ones:
+// Assignment (=, +=, etc.)
+// Exponentiation (**)
+// Ternary (?:)
+// Unary operators (!, ++, typeof, etc.)
+// Parentheses () always have the highest precedence (they override everything)
+
+//Q.7)
+function getMessage() {
+    throw "hello message"
+    // throw new Error("hello message")
+}
+
+function sayHello() {
+    try {
+        const data = getMessage()
+        console.log("worked!", data)
+    } catch (e) {
+        console.log('an error:', e)
+    }
+}
+sayHello()

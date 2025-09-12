@@ -1,4 +1,6 @@
-function isLowerCase(char) {
-//     if(char.charCodeAt(0) > 96 && char.charCodeAt(0) < 123) return true
-//     return false
-// }
+function occur(arr) {
+    return arr.reduce((acc, curr) => {
+        acc[curr] = (acc[curr] || 0) + 1
+        return acc
+    }, {})
+}
