@@ -23,6 +23,14 @@ function powerOfTwo(n){
     return true
 }
 
+var isPowerOfTwo = function(n) {
+    if (n===1) return true
+    else if (n<1 || n%2!==0) return false
+    return isPowerOfTwo(n/2)
+};
+
+isPowerOfTwo(16)
+
 console.log(powerOfTwo(8))
 
 function isPower(n) {
@@ -34,13 +42,13 @@ function isPower(n) {
 }
 console.log(isPower(10))
 
-const powerOf = (num) => {
-  for (let i = 1; i < num; i++){
-    if (2 ** i === e) {
-        return true
-        }
-    };
-  return false;
-};
+// const powerOf = (num) => {
+//   for (let i = 1; i < num; i++){
+//     if (2 ** i === e) {
+//         return true
+//         }
+//     };
+//   return false;
+// };
 
-console.log(powerOf(18))
+// console.log(powerOf(18))
