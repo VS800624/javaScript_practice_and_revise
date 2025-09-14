@@ -341,4 +341,8 @@ Points to remember:
 3. "this" in a method always points to the object that is used to invoke the method.
 4. call, apply & bind are used to share a method with another object (hence the "this" keyword reference would also change accordingly)
 5. "this" inside arrow function refers to the enclosing lexical context
-6. "this" in DOM points to the HTML element itself on which it is being used
+6. "this" in DOM points to the HTML element itself on which it is being used.
+
+LocalStorage and Session Storage:
+1)LocalStorage and sessionStorage are the same,but LocalStorage data will be persistent until and unless we decided to clear it while sessionStorage will be lost when we close the web browser.
+2) We store data in local storage for user specific data.
