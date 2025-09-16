@@ -346,3 +346,113 @@ Points to remember:
 LocalStorage and Session Storage:
 1)LocalStorage and sessionStorage are the same,but LocalStorage data will be persistent until and unless we decided to clear it while sessionStorage will be lost when we close the web browser.
 2) We store data in local storage for user specific data.
+
+async vs defer attribute:
+
+ - In normal script tag html parsing goes on as soon as the script tag is encountered the script is fetched from the network and there and then they are executed  and after that html parsing continues.
+ - In script tag with async attribute the html parsing is goes on and the script is fetched in async manner parallelly and as soon as the script are available the script is executed after only html parsing continues.
+ in case of defer attribute the html parsing is goes on and the script is fetched in parallel and only executed ones the html parsing is completed
+
+Note: 
+   - The async attribute does not guarantee the order of execution of the scripts but defer does so, suppose if you have multiple  scripts which are depended to each other like some scripts are depended on other and some scripts on other you have multiple depended scripts then using a async tag does not guarantee  that these scripts will be executed in a particular order that  may break your code in that case you should probably prefer defer.
+   - Another example is suppose you have to load some external scripts (like google analytics, etc) which are quite modular and are independent of our normal code so in that case in make sense to use async attribute and not use the defer otherwise it is mostly wise to use defer attribute because defer attribute maintains the order of execution of the scripts.
+
+1. Normal <script> (without async/defer):
+ - When the browser sees a <script> tag, it pauses HTML parsing, fetches the script, executes it, then resumes HTML parsing.
+ - This can block rendering and cause slower page load if scripts are large.
+
+ [HTML Parsing Starts]
+        |
+        v
+ [Script Tag Found]
+        |
+        v
+ [Download Script]
+        |
+        v
+ [Execute Script]
+        |
+        v
+[Resume HTML Parsing]
+
+
+2. async Attribute:
+ - Script is fetched asynchronously in parallel with HTML parsing.
+ - Execution happens immediately when the script is ready (download completed).
+ - HTML parsing is paused at that moment until the script finishes execution.
+ - Does not guarantee order of execution → scripts may run out of order depending on network speed.
+
+ [HTML Parsing Starts] ---------------------->
+        |                          (continues)
+        |
+        v
+ [Async Script Tag Found]
+        |
+        v
+ [Download Script in Parallel]
+        |
+        v
+ [When Script Ready?]
+        |
+        +----> [Execute Script Immediately]
+                     |
+                     v
+              (HTML Parsing Paused)
+
+
+✅ Best for independent scripts (e.g., ads, analytics, tracking pixels, social media widgets).
+❌ Not good when scripts depend on each other or on DOM content.
+
+3. defer Attribute:
+ - Script is fetched asynchronously in parallel with HTML parsing.
+ - Execution happens only after HTML parsing is fully complete (i.e., after DOM is built).
+ - Guarantees execution order (executed in the order they appear in HTML).
+
+ [HTML Parsing Starts] ---------------------->
+        |                          (continues)
+        |
+        v
+ [Defer Script Tag Found]
+        |
+        v
+ [Download Script in Parallel]
+        |
+        v
+ [HTML Parsing Completes]
+        |
+        v
+ [Execute All Defer Scripts in Order]
+
+
+✅ Best for dependent scripts or scripts manipulating DOM elements.
+✅ Recommended for most normal JS files.
+❌ Not ideal for very early critical scripts (they run later).
+
+Short Definition: 
+
+async: Scripts are downloaded in parallel with HTML parsing and executed immediately once available. Order is not guaranteed. Best for independent scripts.
+
+defer: Scripts are also downloaded in parallel but executed after HTML parsing completes, and in order. Best for dependent scripts or main logic.
+
+What is HTML Parsing?
+
+ - Parsing means reading and converting code into a structured format that the computer (browser) understands.
+
+ - When you open a webpage, the browser downloads the HTML file.
+
+ - The browser then parses (reads + processes) the HTML line by line to build an internal structure called the DOM (Document Object Model).
+
+Step by Step: 
+
+ - Browser starts reading HTML from top to bottom.
+ - When it finds tags (<html>, <head>, <body>, <div>, <p> etc.), it converts them into nodes.
+ - These nodes are connected like a tree structure = the DOM Tree.
+ - Once parsing is done, the browser can render (display) the page on the screen.
+
+Parsing converts this into a DOM tree like:
+ HTML
+ └── BODY
+      ├── H1 ("Hello")
+      └── P ("World")
+
+HTML parsing is the process where the browser reads the HTML document and converts it into a DOM tree (Document Object Model), which represents the structure and content of the webpage. During parsing, scripts can block, run asynchronously, or defer execution depending on their attributes.
