@@ -82,3 +82,60 @@ obj2.x()
 
 // this inside DOM elements is the reference to that particular HTML DOM element (the HTML element where this is present)
 
+// let obj3 = {
+//     xyz: "john",
+//     pqr: function (){
+//         console.log(this.xyz)
+//     }
+// }
+// const c = obj3.pqr
+// obj3.pqr()
+// c()
+
+// Method Call: obj3.pqr()
+// +------------------+
+// | obj3             |
+// | └─ pqr() {       |
+// |      console.log(this.xyz)  <-- this = obj3
+// | }                |
+// +------------------+
+// Output: "john"
+
+
+// Standalone Call: c()
+// +------------------+
+// | c() {            |
+// |   console.log(this.xyz)     <-- this = undefined (strict mode)
+// | }                |
+// +------------------+
+// Output: undefined
+
+// Explanation
+
+// obj3.pqr()
+// Function is called as a method of obj3.
+// this automatically points to obj3.
+// So this.xyz → "john"
+
+// c()
+// Function is now detached from obj3.
+// Called standalone → this defaults to undefined (in strict mode).
+// So this.xyz → undefined
+
+
+// | Call Type                     | Example                           | `this` Inside Function                                | Output Example               |
+// | ----------------------------- | --------------------------------- | ----------------------------------------------------- | ---------------------------- |
+// | **Method call**               | `obj.fn()`                        | `obj` (object before dot)                             | Access object properties     |
+// | **Standalone function call**  | `fn()`                            | `undefined` (strict) / global obj (non-strict)        | Usually undefined            |
+// | **Constructor call**          | `new Fn()`                        | Newly created object                                  | Properties of new object     |
+// | **Arrow function**            | `() => { console.log(this) }`     | `this` **lexically inherited** from surrounding scope | Depends on outer `this`      |
+// | **`bind` / `call` / `apply`** | `fn.bind(obj)()` / `fn.call(obj)` | Explicitly set to object (`obj`)                      | Access object properties     |
+// | **Event handler (DOM)**       | `element.onclick = fn`            | Event target (`element`)                              | Element that triggered event |
+
+
+// Quick Memory Tips
+// Dot matters → obj.fn() → this = obj
+// Standalone = nothing → this = undefined (strict)
+// Arrow functions → this is inherited
+// Bind/call/apply → override this
+
