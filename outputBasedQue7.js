@@ -44,3 +44,39 @@ console.log(person, birthYear)
 // Objects are passed by reference → modifying their properties inside a function affects the original object.
 // Primitives (string, number, boolean, etc.) are passed by value → modifying them inside a function does not affect the original variable.
 // Function parameters receive copies of values for primitives, but references for objects.
+
+
+let arr = ["hello", 'world']
+let ans = arr.includes("world",-2)
+console.log(ans)
+
+// Array.includes() syntax:
+// arr.includes(searchElement, fromIndex)
+// searchElement → element to search
+// fromIndex → optional, where to start searching
+// Can be negative → counts from the end of the array
+
+// How negative fromIndex works
+// Negative index = arr.length + fromIndex
+// Example: arr.includes("world", -2)
+// arr.length = 2
+// fromIndex = -2
+// actual start index = 2 + (-2) = 0
+
+// arr = ["hello", "world"]
+// start at index 0:
+
+// index 0 → "hello" ≠ "world"  
+// index 1 → "world" = "world" true
+
+// Key Points about includes:
+// fromIndex >= arr.length → always false
+// fromIndex < 0 → starts at arr.length + fromIndex
+// Default fromIndex = 0 if omitted
+
+let d = "hello World"
+console.log(d.includes("helw"))
+let letters = "hwo"
+
+let allPresent = letters.split("").every(char => char.includes(char))
+console.log(allPresent)
