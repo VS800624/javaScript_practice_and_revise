@@ -24,4 +24,7 @@ var createCounter = function(init) {
 
 const counter = createCounter(5)
 console.log(counter.increment())
+console.log(counter.reset()) // 5
+console.log( counter.decrement()); // 4
+ 
 
