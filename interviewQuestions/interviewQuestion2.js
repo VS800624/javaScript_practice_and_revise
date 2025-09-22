@@ -208,12 +208,12 @@ console.log(arr.join(""))
 
 // Eg:
 // You write:
-const greet = () => console.log("hello")
+// const greet = () => console.log("hello")
 
 // Babel converts it into:
-function greet () {
-    console.log("hello")
-}
+// function greet () {
+//     console.log("hello")
+// }
 // Now even older browsers (that don’t support const or arrow functions) can run it.
 
 //So, “Babel is a JavaScript compiler that helps developers use the latest JavaScript features by converting them into code that works in older browsers.”
@@ -258,3 +258,64 @@ function greet () {
 
 // 1. let and const are hoisted but its memory is allocated at other place(script or blocked scoped memory) than window (global execution context) which cannot be accessed before initialization.
 // 2. Temporal Dead Zone exists until variable is declared and assigned a value.
+
+// Q)13 map, filter and reduce?
+
+// 1. map()
+// Purpose: Transform each element in the array.
+// Returns: Always a new array (same length as original).
+
+// const nums = [1, 2, 3];
+// const doubled = nums.map(n => n * 2);
+// console.log(doubled); // [2, 4, 6]
+
+// 2. filter()
+// Purpose: Keep only elements that satisfy a condition.
+// Returns: Always a new array (may be shorter).
+
+// const nums = [1, 2, 3, 4];
+// const evens = nums.filter(n => n % 2 === 0);
+// console.log(evens); // [2, 4]
+
+// 3. reduce()
+
+// Purpose: Reduce array to a single value (like sum, product, object, etc.).
+// Returns: Not an array by default, but whatever you return in the callback (number, string, object, even an array if you build one).
+
+// const nums = [1, 2, 3, 4];
+// const sum = nums.reduce((acc, ele) => acc + ele, 0);
+// console.log(sum); // 10 (number, not array)
+
+// Summary:
+// map() → returns new array
+// filter() → returns new array
+// reduce() → returns a single value (not array, unless you explicitly make it build an array)
+
+// Q.14) What are template literals?
+
+// They are a special way to write strings in JavaScript using backticks (`).
+// They allow you to:
+// Insert variables or expressions easily with ${...} (this is called string interpolation).
+// Write multi-line strings without using \n.
+// Use features like tagged templates (advanced usage).
+
+// 1. String with variables
+
+// const name = "John";
+// const age = 25;
+
+// console.log(`My name is ${name} and I am ${age} years old.`);
+
+// 2. Multi-line string
+const poem = `Roses are red,
+Violets are blue,
+I love coding,
+And so do you.`;
+
+console.log(poem);
+
+// 3. Expressions inside
+
+const a = 10, b = 20;
+console.log(`The sum is ${a + b}`); 
+// Output: The sum is 30
