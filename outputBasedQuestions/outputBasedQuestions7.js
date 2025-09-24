@@ -47,3 +47,13 @@ console.log(Object.keys(obj))
 // Object.keys(obj) returns only the enumerable keys of the object.
 // If the property a is non-enumerable by default, it will not appear in the result.
 
+// Q.4 
+const box = {x: 10, y: 20}
+Object.freeze(box)
+
+const shape = box
+shape.x =100
+shape.z =20
+console.log(shape)
+
+//Note: if we freeze an object then we can not perform updation , deletion and insertion operation on that object so here the values inside the box will not change
