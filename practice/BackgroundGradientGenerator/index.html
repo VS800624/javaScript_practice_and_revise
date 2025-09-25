@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div>
+            <button id="myButton">#a06495</button>
+            <button id="myButton2">#cf01a9</button>
+        </div>
+        <h2>Copy your code here</h2>
+        <div class="copyCode">backgroundImage: linear-gradient(to right, )</div>
+    </section>
+    <script>
+        let btn1 = document.getElementById("myButton")
+        let btn2 = document.getElementById("myButton2")
+        let copyDiv = document.querySelector(".copyCode")
+
+
+        function randomHexColor() {
+            let color = "#" + Math.random().toString(16).slice(2,8).padEnd(6,0)
+            return color
+        }
+
+
+        btn1.addEventListener("click" ,(e) => {handleButton1()} )
+        btn2.addEventListener("click" ,(e) => {handleButton2()} )
+
+        const handleButton1 = () => {
+            let color1 = randomHexColor()
+            // console.log(color1)
+            btn1.textContent = color1
+            document.body.style.backgroundImage =`linear-gradient(to right , ${color1},#a04d79 )`
+            copyDiv.innerHTML = `backgroundImage: linear-gradient(to right , ${color1},#a04d79 )`
+        }
+
+        const handleButton2 = () => {
+            let color2 = randomHexColor()
+            // console.log(color2)
+            btn2.textContent = color2
+             document.body.style.backgroundImage =`linear-gradient(to right , ${color2},#a04d79 )`
+             copyDiv.innerHTML = `backgroundImage: linear-gradient(to right , #a04d79, ${color2} )`
+        }
+    </script>
+</body>
+</html>
