@@ -197,3 +197,8 @@ async function main() {
 }
 
 main();
+
+// Q.9) 
+const {fName: feDEV} = {FName: "Mr.X"}
+// console.log(fName)
+console.log(feDEV)   //destructuring
