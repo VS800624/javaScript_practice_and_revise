@@ -202,3 +202,11 @@ main();
 const {fName: feDEV} = {FName: "Mr.X"}
 // console.log(fName)
 console.log(feDEV)   //destructuring
+
+// Q.10)
+function sum (n1,n2= n1){
+    console.log(n1 + n2)
+}
+
+sum(10)
+sum(10,50)
