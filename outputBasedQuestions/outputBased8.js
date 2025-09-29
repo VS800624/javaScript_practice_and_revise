@@ -69,3 +69,16 @@ Person = class AnotherPerson{
 
 const member = new Person()
 console.log(member.name)
+// In JavaScript, classes are just special functions, so they can be reassigned like variables. After redefining Person with AnotherPerson, the name Person points to the new class. That’s why the instance has name = "Master" instead of "Frontend"
+// we reassigned the variable Person to a new class, the old class is lost, and the new one takes effect.
+// Person points to the new class (AnotherPerson).
+//  Person is a variable referencing a class. That’s why the original Person class is gone and replaced by the new one.
+
+// "Class declarations create a fixed class tied to its name, while class expressions are flexible and can be assigned or reassigned to variables. That’s why in your example, the first Person class is replaced when you reassign Person to a new class expression."
+
+// Hoisting: Like let/const, class declarations are hoisted but stay in the temporal dead zone. You can’t use them before they appear in code.
+
+// Q.4)
+// const name = "Happy Singh"
+// console.log(name())  
+// will throw a type error like TypeError: name is not a function

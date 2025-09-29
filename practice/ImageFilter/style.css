@@ -1,0 +1,32 @@
+body{
+    display: grid;
+    place-items: center;
+    max-width: 100%;
+    background-color: #ecf0f1;
+    height: auto;
+    font-family: sans-serif;
+    letter-spacing: 0.1rem;
+}
+
+.tabs{
+    display: flex;
+    gap: 3.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    list-style: none;
+    margin-bottom: 3.2rem;
+}
+
+.menu_images{
+    display: flex;
+    gap: 3.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+img {
+    width: 32rem;
+    height: 100%;
+    border-radius: 0.6rem;
+    -webkit-border-radius: 0.6rem;
+}
