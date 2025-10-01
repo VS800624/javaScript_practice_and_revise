@@ -16,5 +16,5 @@ console.log(user.email)
 
 // In JavaScript:
 // Normal functions → their this depends on how they are called (method call, global call, etc.).
-
+ 
 // Arrow functions → they do not have their own this. Instead, they "lexically capture" this from the parent scope where they were created.
