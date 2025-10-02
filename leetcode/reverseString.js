@@ -12,11 +12,13 @@
 
 // or 
 function reverseString(str) {
-    let reverse = ""
-    for(let i =str.length-1; i>=0;i--) {
-        reverse = reverse + str[i]
+    for(let i = 0; i< Math.floor(s.length/2);i++){
+        let j = str.length- 1- i
+       let temp = str[i]
+        str[i] = str[j]
+        str[j] = temp
     }
-    return reverse
+    return str
 }
 
 console.log(reverseString("hello"))
@@ -34,6 +36,9 @@ console.log(reverseString("hello"))
 // Output: ["o","l","l","e","h"]
 
 function reverseStr(s){
+    if(typeof s === "string"){
+        s = s.split("")
+    }
     for(let i = 0; i< Math.floor(s.length/2);i++){
         let j = s.length- 1- i
        let temp = s[i]
