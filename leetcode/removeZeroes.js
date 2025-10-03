@@ -21,9 +21,13 @@ var moveZeroes = function(nums) {
         position++
   } 
 }
-while(position< nums.length){
-    nums[position] = 0
-    position ++
+ // fill all the remaining elements to zero
+// while(position< nums.length){
+//     nums[position] = 0
+//     position ++
+// }
+for(let  i =x; i<nums.length; i++){
+  nums[i] = 0
 }
   return nums
 };

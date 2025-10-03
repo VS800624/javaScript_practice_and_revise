@@ -8,12 +8,32 @@
 
 // Output: 1
 
+// function singleNum(nums){
+//     let hash = {}
+//     for(let i =0 ; i<nums.length; i++){
+// // storing the values in hash object in keys (values of arrays in nums) and count(as values)
+//         if(!hash[nums[i]]){
+//             hash[nums[i]] = 1
+//         } else{
+//             hash[nums[i]]++
+//         }
+//     }
+// // finding the non-duplicate number in hash which has count 1
+//     for(let i =0 ; i<nums.length; i++){
+//         if(hash[nums[i]] === 1){
+//             return nums[i]   // returning the non-duplicate element in nums array
+//         }
+//     }
+// }
+
+// or
+
 function singleNum(arr) {
-    let result = 0
+    let xor = 0
     for(let i = 0; i< arr.length; i++){
-       result = result ^ arr[i]
+       xor = xor ^ arr[i]
     }
-    return result
+    return xor
 }
 
-console.log(singleNum([2,2,1]))
+console.log(singleNum([2,2,1,4,4,1,3]))
