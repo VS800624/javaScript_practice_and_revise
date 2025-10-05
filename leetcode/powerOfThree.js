@@ -2,15 +2,23 @@
 // An integer n is a power of three, if there exists an integer x such that n == 3x.
 //     console.log(power(0))
 
-    var isPowerOfThree = function(n) {
-    if (n <= 0) return false
-    while (n > 1) {
-        if (n %3 !== 0) {
-         return false
-        } else {
-        n = n /3
-         }
-    }
-    return true
-};
+//     var isPowerOfThree = function(n) {
+//     if (n <= 0) return false
+//     while (n > 1) {
+//         if (n %3 !== 0) {
+//          return false
+//         } else {
+//         n = n /3
+//          }
+//     }
+//     return true
+// };
+
+// or using recursion
+function isPowerOfThree(n){
+    if(n===1) return true
+    else if(n<0 || n%3 !==0) return false
+    return isPowerOfThree(n/3)
+}
+
 console.log(isPowerOfThree(9))
