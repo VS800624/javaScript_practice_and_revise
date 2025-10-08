@@ -17,17 +17,18 @@
 
 function binarySearch(nums,target){
     let left = 0
-    let right  = nums.length - 1
+    let right = nums.length - 1
     while (right>= left){
-        let middle = Math.floor((left+right)/2)
-        if(target===nums[middle]) return middle
-        else if (target < nums[middle]){
+        let middle = Math.floor((right+left)/2)
+        if(target === nums[middle]) return middle
+        else if (target < nums[middle]) {
             right = middle - 1
-        } else {
+        }
+        else { 
             left = middle + 1
         }
     }
     return -1
 }
 
-console.log(binarySearch([2,5,6,8,9,12],6))
+console.log(binarySearch([2,5,8,9,13],9))

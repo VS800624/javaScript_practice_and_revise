@@ -2,13 +2,20 @@
 // An integer n is a power of four, if there exists an integer x such that n == 4x.
 
 
-var isPowerOfFour = function(n) {
-    if (n <= 0) return false
-    while (n > 1) {
-        if (n %4 !== 0) return false
-        n = n /4
-    }
-    return true
-};
+// var isPowerOfFour = function(n) {
+//     if (n <= 0) return false
+//     while (n > 1) {
+//         if (n %4 !== 0) return false
+//         n = n /4
+//     }
+//     return true
+// };
 
-console.log(isPowerOfFour(14))
+// or using recursion 
+function isPowerOfFour(n){
+    if(n===1) return true
+    else if (n<0 || n%4 !== 0) return false
+    return isPowerOfFour(n/4)
+}
+
+console.log(isPowerOfFour(16))

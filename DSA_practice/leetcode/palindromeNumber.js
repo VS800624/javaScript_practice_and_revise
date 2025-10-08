@@ -9,7 +9,6 @@
 // Explanation: 121 reads as 121 from left to right and from right to left.
 
 var isPalindrome = function(x) {
-  if (x<0) return false
     let rem = 0
     let copy = x
   while(x>0){
@@ -19,4 +18,4 @@ var isPalindrome = function(x) {
     return true
   } else return false
 };
-console.log(isPalindrome(121))
+console.log(isPalindrome(132))
