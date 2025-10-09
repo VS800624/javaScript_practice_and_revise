@@ -15,19 +15,19 @@
 // Output: [0,0,1,1,2,5]
 // Explanation: Note that the values of nums are not necessarily unique.
 
-function mergeSort(arr){
-    if(arr.length<=1) return arr
-    let mid = Math.floor(arr.length/2)
-    let left = mergeSort(arr.slice(0,mid))
-    let right = mergeSort(arr.slice(mid))
-    return merge(left,right)
+function mergeSort(nums) {
+    if(nums.length <=1) return nums
+    let middle = Math.floor(nums.length/2)
+    let left = mergeSort(nums.slice(0,middle))
+    let right = mergeSort(nums.slice(middle))
+    return merge(left, right)
 }
 
-function merge(left,right){
-    let res =[]
+function merge(left, right){
+    let res = []
     let i = 0
-    let j = 0
-    while(i<left.length && j<right.length){
+    let j  = 0
+    while (i<left.length && j<right.length){
         if(left[i]<right[j]){
             res.push(left[i])
             i++
@@ -36,7 +36,17 @@ function merge(left,right){
             j++
         }
     }
-    return [...res,...left.slice(i),...right.slice(j)]
+    //  logic for adding remaining elements
+    return [...res, ...left.slice(i), ...right.slice(j)]
+    // while(i<left.length){
+    //     res.push(left[i])
+    //     i++
+    // }
+    //   while(j<right.length){
+    //     res.push(right[j])
+    //     j++
+    // }
+    // return res
 }
 
-console.log(mergeSort([4,7,8,2,3,9,1]))
+console.log(mergeSort([5,1,1,2,0,0]))
