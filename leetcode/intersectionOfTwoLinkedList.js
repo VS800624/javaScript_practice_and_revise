@@ -54,16 +54,17 @@ var getIntersectionNode = function(headA, headB) {
     return null
 };
 
-// approach 2 : using hash map or set (good approach because it's time complexity is O(n)
+// approach 2 : using hash map or set (good approach because it's time complexity is O(n) 
 
 var getIntersectionNode = function(headA, headB) {
    let set = new Set()
-//    storing the elements of linked list (headB) in set
+//    put all the nodes of headB inside a set
    while (headB){ 
         set.add(headB)
         headB = headB.next
    }
 
+//    check for each node of HeadB if they are present in set 
    while(headA){
         if(set.has(headA)){
             return headA
