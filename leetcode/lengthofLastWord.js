@@ -94,3 +94,4 @@ var lengthOfLastWord = function(s) {
 
 
 console.log(lengthOfLastWord("   fly me   to   the moon  "))
+
