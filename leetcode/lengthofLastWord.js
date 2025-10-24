@@ -66,32 +66,49 @@
 // };
 
 // or 
-var lengthOfLastWord = function(s) {
-    // trim all the spaces at the end
-    let n = s.length - 1
-    while(n>=0){
-        if(s[n] === " " ){
-            n--
-        } else {
-            break
-        }
-    }
-    // n is the point where my last word start
+// var lengthOfLastWord = function(s) {
+//     // trim all the spaces at the end
+//     let n = s.length - 1
+//     while(n>=0){
+//         if(s[n] === " " ){
+//             n--
+//         } else {
+//             break
+//         }
+//     }
+//     // n is the point where my last word start
         
-    // count the character till you reach a space
+//     // count the character till you reach a space
 
+//     let count = 0
+//     while(n>=0){
+//         if(s[n] !== " "){
+//             n--
+//             count++
+//         } else {
+//             break
+//         }
+//     }
+//     return count
+// };
+
+// or with single loop
+var lengthOfLastWord = function(s){
+    let n = s.length - 1
     let count = 0
     while(n>=0){
-        if(s[n] !== " "){
-            n--
-            count++
-        } else {
-            break
-        }
+    if(s[n] !== " "){   //if non-space
+        count++
+    }
+    else if (count> 0){   // if(space && count> 0) means if there is a space after last word break
+        break
+    }
+        n--         // decreasing n in trailing space means if (space && count === 0)
     }
     return count
-};
-
+}
 
 console.log(lengthOfLastWord("   fly me   to   the moon  "))
 
+
+ 
