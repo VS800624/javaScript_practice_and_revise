@@ -456,3 +456,13 @@ Parsing converts this into a DOM tree like:
       └── P ("World")
 
 HTML parsing is the process where the browser reads the HTML document and converts it into a DOM tree (Document Object Model), which represents the structure and content of the webpage. During parsing, scripts can block, run asynchronously, or defer execution depending on their attributes.
+
+General Rule to Decide for while loop and for loop:
+
+| Use When...                                                                              | Use `for` Loop ✅                                     | Use `while` Loop ✅                                                    |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------- |
+| You know **exact number of iterations**                                                  | ✔ Best choice                                        | ✖ Not preferred                                                       |
+| You **don't know** how many times it will loop (depends on a condition during execution) | ✖ Not ideal                                          | ✔ Best choice                                                         |
+| The loop needs **only one variable moving forward**                                      | ✔ Good                                               | ✔ Good                                                                |
+| The loop needs **multiple pointers that change conditionally** (like `i` & `j`)          | ✖ Hard to manage with `for`                          | ✔ Better control                                                      |
+| Typical use case                                                                         | Running loop 10 times, iterating an array with index | Two-pointer problems, reading input until a condition, infinite loops |
