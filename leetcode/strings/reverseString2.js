@@ -13,18 +13,35 @@
 // Input: s = "abcd", k = 2
 // Output: "bacd"
 
-var reverseStr = function(s, k) {
-    arr= s.split("")
+// var reverseStr = function(s, k) {
+//     arr= s.split("")
 
-    for(let i =0 ; i<arr.length ; i+=2*k){
-    // reverse only the first k characters
-    let part = arr.slice(i, i+k).reverse();
-    // put back into the array
-    for(let j =0; j<k && j<arr.length;j++){
-        arr[i+j] = part[j]
-    }
+//     for(let i =0 ; i<arr.length ; i+=2*k){
+//     // reverse only the first k characters
+//     let part = arr.slice(i, i+k).reverse();
+//     // put back into the array
+//     for(let j =0; j<k && j<arr.length;j++){
+//         arr[i+j] = part[j]
+//     }
+// }
+//     return arr.join("")
+// };
+
+var reverseStr = function (s, k){
+    s = s.split("")
+
+    for(let x =0; x<s.length; x= x+(2*k)){
+        // reverse the first k elements starting from x
+        let n = k
+        let mid = Math.floor(n/2)
+        for(let i =0; i< mid; i++){
+            let temp = s[x+i]
+            s[x+i] = s[x+k-1-i]
+            s[x+k-1-i] = temp
+        }
+    } 
+    return s.join("")
 }
-    return arr.join("")
-};
 
 console.log(reverseStr("abcdefg",2))
+
