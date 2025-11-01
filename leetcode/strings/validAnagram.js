@@ -14,41 +14,68 @@
 
 // Output: false
 
+//Approach:1) With built-in methods:
+// function isAnagram(s,t){
+//   if(s.length !== t.length) return false
+//   return s.split("").sort().join("") === t.split("").sort().join("")
+// }
 
-var isAnagram = function(s, t) {
-  if (s.length !== t.length) return false
-  let count1 = {}
-  let count2 ={}
-   // count frequency in s
-  for (let i =0; i<s.length; i++){
-    let char = s[i]
-    if(count1[char]){
-        count1[char] += 1 
-    } else{
-        count1[char] = 1
-    }
-  }
+//Approach:2) With map or hashmap: 
+// function isAnagram(s,t) {
+// if(s.length !== t.length) return false
+//   let map1 = {}
+//   let map2 = {}
+//    // count frequency in s
+//   for(let i=0; i<s.length; i++){
+//     if(!map1[s[i]]){
+//       map1[s[i]] = 1
+//     } else {
+//       ++map1[s[i]]
+//     }
+//   }
 
-   // count frequency in t
-  for(let i =0; i<t.length;i++){
-    let char = t[i]
-    if(count2[char]){
-        count2[char] += 1
+//    // count frequency in t
+//   for(let i=0; i<t.length; i++){
+//     if(!map1[s[i]]){
+//       map1[s[i]] = 1
+//     } else {
+//       ++map1[s[i]]
+//     }
+//   }
+
+//   // compare map1 and map2
+//   let keys = Object.keys(map1)
+//   for (let i=0; i<keys.length; i++){
+//     if(map2[keys[i]] !== map1[keys[i]]){
+//       return false
+//     } 
+//   }
+//   return true
+// }
+
+// Approach:3) More optimized approach
+function isAnagram(s,t){
+  if(s.length !== t.length) return false
+  let map = {}
+
+  for(let i =0; i<s.length; i++){
+    if(!map[s[i]]){
+      map[s[i]] = 1
     } else {
-        count2[char] =1
+      ++map[s[i]]
     }
   }
-  
-  // compare count1 and count2
-  let keys = Object.keys(count1)
-  for(let i=0;i<keys.length; i++){
-    let key = keys[i]
-    if(count1[key] !== count2[key]){
-        return false
+
+  for(let i =0; i<t.length; i++){
+    if(!map[t[i]] || map[t[i]] < 0){
+      return false
+    } else {
+      --map[t[i]]
     }
   }
   return true
-};
+}
+
 
 console.log(isAnagram("anagram","nagaram"))
 
