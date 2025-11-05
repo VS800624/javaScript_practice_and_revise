@@ -67,7 +67,7 @@ function groupAnagrams(strs) {
       map[key].push(s)
     }
   }
-  return [...Object.keys(map)]
+  return [...Object.values(map)]
 }
 
 console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
