@@ -108,7 +108,7 @@ var MyStack = function() {
  * @return {void}
  */
 MyStack.prototype.push = function(x) {
-    this.q.push(x)
+    this.q.push()
 };
 
 /**
@@ -130,8 +130,6 @@ MyStack.prototype.top = function() {
    for(let i =0; i<n-1; i++){
     this.q.push(this.q.shift())
    }
-  //  let front = this.q[0]
-  //  this.q.push(this.q.shift()) //or
    let front = this.q.shift()
    this.q.push(front)
    return front
