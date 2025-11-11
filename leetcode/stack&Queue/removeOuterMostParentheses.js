@@ -38,24 +38,42 @@
 // s[i] is either '(' or ')'.
 // s is a valid parentheses string.
 
-var removeOuterParentheses = function(s) {
-    let stack = []
-    let result = ""
-    for(let i=0; i<s.length; i++){
-      if(s[i] === "("){
-        stack.push(s[i])
-        // if(stack.length > 1) {
-        //   result = result + s[i]
-        // }  //or
-      result += (stack.length > 1) ? s[i] : ""
-      } else {
-         if(stack.length > 1) {
-          result = result + s[i]
-        } 
-        stack.pop()
+// var removeOuterParentheses = function(s) {
+//     let stack = []
+//     let result = ""
+//     for(let i=0; i<s.length; i++){
+//       if(s[i] === "("){
+//         stack.push(s[i])
+//         // if(stack.length > 1) {
+//         //   result = result + s[i]
+//         // }  //or
+//       result += (stack.length > 1) ? s[i] : ""
+//       } else {
+//          if(stack.length > 1) {
+//           result = result + s[i]
+//         } 
+//         stack.pop()
+//       }
+//     }
+//     return result
+// };
+
+// or without using stack
+function removeOuterParentheses(s) {
+  let level = 0
+  let result = ""
+  for(let i=0; i<s.length; i++){
+    if(s[i] === "("){
+      level++
+      if(level>1){
+        result = result + s[i]
       }
+    } else {
+      result += ((level>1)? s[i] : "")
+      level--
     }
-    return result
-};
+  }
+  return result
+}
 
 console.log(removeOuterParentheses("(()())(())"))
