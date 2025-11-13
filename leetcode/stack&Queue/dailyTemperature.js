@@ -18,33 +18,45 @@
 // 1 <= temperatures.length <= 105
 // 30 <= temperatures[i] <= 100
 
-
-
-
+// brute force
 var dailyTemperatures = function (temp) {
-  let stack = [];
-  let n = temp.length;
-  let ans = Array(n).fill(0);
-
-  stack.push(n - 1);
-  // ans[n-1] = 0
-
-  for (let i = n - 2; i >= 0; i--) {
-    while (stack.length) {
-      let top = stack[stack.length - 1];
-      if (temp[top] <= temp[i]) {
-        stack.pop();
-      } else {
-        ans[i] = top - i;
-        break;
+  let ans = Array(temp.length).fill(0)
+  for(let i=0; i<temp.length; i++){
+    for(let j=i+1; j<temp.length; j++){
+      if(temp[i]<temp[j]){
+        ans[i] = j - i
+        break
       }
     }
-    // if(stack.length ===0 ){
-    //   ans[i] === 0
-    // }
-    stack.push(i)
   }
-  return ans;
+  return ans
 };
+
+// or more optimized
+// var dailyTemperatures = function (temp) {
+//   let stack = [];
+//   let n = temp.length;
+//   let ans = Array(n).fill(0);
+
+//   stack.push(n - 1);
+//   // ans[n-1] = 0
+
+//   for (let i = n - 2; i >= 0; i--) {
+//     while (stack.length) {
+//       let top = stack[stack.length - 1];
+//       if (temp[top] <= temp[i]) {
+//         stack.pop();
+//       } else {
+//         ans[i] = top - i;
+//         break;
+//       }
+//     }
+//     // if(stack.length ===0 ){
+//     //   ans[i] === 0
+//     // }
+//     stack.push(i)
+//   }
+//   return ans;
+// };
 
 console.log(dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]));
