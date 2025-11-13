@@ -32,6 +32,27 @@
 // All integers in nums1 and nums2 are unique.
 // All the integers of nums1 also appear in nums2.
 
+// brute force
+// function nextGreaterElement(arr1,arr2){
+//     let map = {}
+//     for (let i=0; i<arr2.length; i++){
+//         let next = -1;
+//         // find first greater element
+//         for(let j=i+1; j<arr2.length; j++){
+//             if(arr2[i]< arr2[j]){
+//                 next = arr2[j];
+//                 break;
+//             }
+//         }
+//         map[arr2[i]] = next;
+//     }
+//     let ans = []
+//     for(let i=0;i<arr1.length; i++){
+//         ans.push(map[arr1[i]])
+//     }
+//     return ans
+// }
+
 // var nextGreaterElement = function(nums1, nums2) {
 //     let stack = []
 //     let ngeMap = {}

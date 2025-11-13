@@ -18,6 +18,9 @@
 // 1 <= temperatures.length <= 105
 // 30 <= temperatures[i] <= 100
 
+
+
+
 var dailyTemperatures = function (temp) {
   let stack = [];
   let n = temp.length;
