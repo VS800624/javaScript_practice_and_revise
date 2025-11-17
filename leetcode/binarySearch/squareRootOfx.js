@@ -3,7 +3,6 @@
 // You must not use any built-in exponent function or operator.
 
 // For example, do not use pow(x, 0.5) in c++ or x ** 0.5 in python.
- 
 
 // Example 1:
 
@@ -15,7 +14,6 @@
 // Input: x = 8
 // Output: 2
 // Explanation: The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned.
- 
 
 // Constraints:
 
@@ -27,16 +25,34 @@
 
 // or without in-build method with linear search
 
-function mySqrt(x){
-    if (x<2) return x
-    else if (x>=2) {
-        for(let i=2; i<=Math.floor(x/2); i++){
-            if(i*i === x) return i
-            else if (i*i > x) {
-                return i-1
-            }
-        }
-    }
-}
+// with while loop
+// function mySqrt(x) {
+//   let i = 1;
+//   while (i * i <= x) {
+//     i++;
+//   }
+//   return i - 1;
+// }
 
-console.log(mySqrt(6))
+// optimizing the solution with binary search algorithm
+
+var mySqrt = function (x) {
+  if (x < 2) return x;
+  else {
+    let l = 2;
+    let r = Math.floor(x / 2);
+    while (l <= r) {
+      // let m = Math.floor((l+r/2))  // or
+      let m = l + Math.floor((r - l) / 2);
+      if (m * m === x) return m;
+      else if (m * m < x) {
+        l = m + 1;
+      } else {
+        r = m - 1;
+      }
+    }
+    return r;
+}
+};
+
+console.log(mySqrt(13));
