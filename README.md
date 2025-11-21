@@ -80,7 +80,7 @@ Q) Temporal Dead Zone ?
 7. Use const wherever possible followed by let, Use var as little as possible(only if you have to). It helps avoid error.
 8. Initializing variables at the top is good idea, helps shrinks TDZ to zero.
  
-Q) Block Scope amd Shadowing?
+Q) Block Scope and Shadowing?
 
 Block :- It is used to combine multiple statement into one statement so that we can use it at those places where javascript expects to have single statement.
 Scope :- scope of a variable or a function is the place where these are accessible.
