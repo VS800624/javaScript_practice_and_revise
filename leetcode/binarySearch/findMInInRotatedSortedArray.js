@@ -35,6 +35,18 @@
 // All the integers of nums are unique.
 // nums is sorted and rotated between 1 and n times.
 
+// with linear search
+// function findMin(nums){
+//   let min = nums[0]
+//   for (let i =0;i<nums.length; i++){
+//     if(min>nums[i]){
+//       min = nums[i]
+//     }
+//   }
+//   return min
+// }
+
+// with binary search algorithm
 var findMin = function(nums) {
   let l = 0 
   let r = nums.length - 1
