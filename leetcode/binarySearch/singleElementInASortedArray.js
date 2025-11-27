@@ -22,14 +22,14 @@
 // 0 <= nums[i] <= 105
 
 // with linear search
-var singleNonDuplicate = function (nums) {
-    for (let i = 0; i < nums.length; i += 2) {
-        // If current element has no pair then return it
-        if (nums[i] !== nums[i + 1]) {
-            return nums[i];
-        }
-    }
-};
+// var singleNonDuplicate = function (nums) {
+//     for (let i = 0; i < nums.length; i += 2) {
+//         // If current element has no pair then return it
+//         if (nums[i] !== nums[i + 1]) {
+//             return nums[i];
+//         }
+//     }
+// };
 
 // with map 
 // function singleNonDuplicate(nums) {
@@ -54,37 +54,37 @@ var singleNonDuplicate = function (nums) {
 // }
 
 // with binary search
-// var singleNonDuplicate = function(nums) {
-//     let l = 0
-//     let r = nums.length - 1
-//     while(l<=r){
-//       let m = l + Math.floor((r-l)/2)
-//       // pair is on left side
-//       if(nums[m] == nums[m-1]){
-//         let leftCount = m - 1 - l
-//         // left side has odd no of elements
-//         if(leftCount % 2 === 1){
-//           r = m - 2
-//         } // right side has odd no of elements
-//         else {
-//           l = m +1
-//         }
-//       } 
-//       // pair is on the right side
-//       else if (nums[m] == nums[m+1]) {
-//         let leftCount = m - l
-//         // left side has odd no of elements
-//         if(leftCount % 2 === 1){
-//           r = m - 1
-//         } // right side has odd no of elements
-//         else {
-//           l = m + 2
-//         }
-//       }  // single element left 
-//       else {
-//         return nums[m]
-//       }
-//     }
-// };
+var singleNonDuplicate = function(nums) {
+    let l = 0
+    let r = nums.length - 1
+    while(l<=r){
+      let m = l + Math.floor((r-l)/2)
+      // pair is on left side
+      if(nums[m] == nums[m-1]){
+        let leftCount = m - 1 - l
+        // left side has odd no of elements
+        if(leftCount % 2 === 1){
+          r = m - 2
+        } // right side has odd no of elements
+        else {
+          l = m +1
+        }
+      } 
+      // pair is on the right side
+      else if (nums[m] == nums[m+1]) {
+        let leftCount = m - l
+        // left side has odd no of elements
+        if(leftCount % 2 === 1){
+          r = m - 1
+        } // right side has odd no of elements
+        else {
+          l = m + 2
+        }
+      }  // single element left 
+      else {
+        return nums[m]
+      }
+    }
+};
 
 console.log(singleNonDuplicate([1,1,2,3,3,4,4,8,8]))
