@@ -18,14 +18,19 @@
 
 // 0 <= low <= high <= 10^9
 
+// var countOdds = function(low, high) {
+//     let count = 0
+//     for (let i = low; i<=high; i++){
+//       if(i % 2 !== 0){
+//         count++
+//       }
+//     }
+//     return count
+// };
+
 var countOdds = function(low, high) {
-    let count = 0
-    for (let i = low; i<=high; i++){
-      if(i % 2 !== 0){
-        count++
-      }
-    }
-    return count
+    return Math.ceil(high / 2) - Math.ceil((low - 1) / 2);
 };
+
 
 console.log(countOdds(1,7))
