@@ -8,7 +8,7 @@
 
 
 // Debouncing:
-// Debouncing says that only make an API call if the difference between two keypress event are greater than the certain limit. So, if suppose we are typing "samsung" and only if the difference between two keypress stroke events is greater than let's say 300ms tan only make an API call (or function call) and get us the results. So, by doing this  we are saving lots of API calls (i.e. we are not making this function calls after each and every key stroke) in this scenario instead of making 11 API calls we are making 2 or 3 API calls. 
+// Debouncing says that only make an API call if the difference between two keypress event are greater than the certain limit. So, if suppose we are typing "samsung" and only if the difference between two keypress stroke events is greater than let's say 300ms than only make an API call (or function call) and get us the results. So, by doing this  we are saving lots of API calls (i.e. we are not making this function calls after each and every key stroke) in this scenario instead of making 11 API calls we are making 2 or 3 API calls. 
 // Debouncing is if the difference between the key stroke events is certain time (eg: 300ms) then only make the function call. 
 // Debouncing delays the execution of a function until there's a pause, typically after a certain period of inactivity.
 // Debouncing is used to limit how often a function runs, by making it wait until the user stops triggering it for a given time.

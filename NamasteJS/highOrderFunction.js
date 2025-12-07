@@ -35,3 +35,6 @@ Array.prototype.calculate = function (logic) {
 console.log(radius.map(area))
 
 console.log(radius.calculate(area))
+
+// Higher-order function: A function that takes another function as an argument or returns a function.
+// First-class function: A function that can be treated like a normal value in JavaScript.

@@ -11,6 +11,9 @@ document.querySelector("#form").addEventListener("keyup", (e) => {
     }
 })
 
+// Event delegation is a technique where we attach a single event listener to a parent element instead of adding event listeners to each child element.
+// The parent handles the events of its children using event bubbling.
+// It works because of event bubbling.
 
 // Benefits of event delegation.
 // 1.Less memory usage.

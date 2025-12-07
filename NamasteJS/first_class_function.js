@@ -62,6 +62,7 @@ d(1,2) // the values which we pass inside the function when it is called  are kn
 // console.log(x())
 
 // The ability of function to be used as values  and can be passed as an argument to another function and can be return out of another function this ability is known as first class function.
+// A first-class function is a function that can be treated like a normal value, meaning it can be stored in a variable, passed as an argument to another function, and returned from a function.
 
 // first class Functions / first class citizens : 
 // 1) used as values

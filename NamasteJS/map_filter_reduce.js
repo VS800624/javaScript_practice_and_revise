@@ -39,7 +39,8 @@
 // } , 0)
 // const output = arr.reduce((acc, curr) => acc + curr, 0)
 
-
+// The reduce() method is used to reduce an array into a single value (like a number, object, string, or even another array).
+// The reduce() method executes a reducer function on each element of an array and returns a single accumulated result.
 
 // Note: here this function is iterating each value of array so, this reduce basically iterates this function over each and every elements of the array and this current the second parameter represents the current value when we are iterating over the array inside the reduce function and the accumulator the first parameter is used to accumulate the values or accumulate the result what we have to get out of those values which are present in the array , it is like sum variable in the traditional method see above so if we compare this reduce function with the findSum accumulator is sum and current is arr[i]. 
 // And the reduce function takes two arguments : first argument is the function and the second argument is any initial value which you need to pass inside this accumulator.

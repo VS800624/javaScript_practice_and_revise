@@ -28,3 +28,19 @@ How to Make Them Completely Unchangeable
 
 rest vs spread operator? 
 The rest operator is used to collect multiple values into a single array, while the spread operator is used to expand an array or object into individual elements. Both use the same ... syntax but behave differently based on where they are used.
+
+
+What is Event Propagation?
+When you click on an element inside another element (like a button inside a div), the event doesn’t stay at one element.
+It travels through the DOM. This traveling is called event propagation.
+
+There are two main phases:
+ 1) Event Capturing (Trickling)
+ 2) Event Bubbling
+
+ 1) Event Bubbling (Default Behavior): 
+ In event bubbling, the event starts from the target element and moves upwards to its parents.
+
+ 2) Event Capturing (Trickling Phase):
+ In event capturing, the event starts from the top (document) and goes down to the target element.
+ To enable capturing, you must pass true as the third parameter.
