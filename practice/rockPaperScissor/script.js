@@ -14,8 +14,12 @@ function playRound() {
   let humanScore =  0
   let computerScore = 0
   while(humanScore < 3 && computerScore < 3){
-    let humanChoice = getHumanChoice().toLowerCase();   // ✅ take input every round
-    let computerChoice = getComputerChoice();           // ✅ new computer choice every round
+    let humanChoice = getHumanChoice().toLowerCase();   // take input every round
+    let computerChoice = getComputerChoice();           // new computer choice every round
+
+    if(humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissor"){
+      return alert("Please enter the correct input")
+    }
    
     if(humanChoice === "rock" && computerChoice === "paper" ||humanChoice === "paper" && computerChoice === "scissor" || humanChoice === "scissor" && computerChoice === "rock" ){
       computerScore++
