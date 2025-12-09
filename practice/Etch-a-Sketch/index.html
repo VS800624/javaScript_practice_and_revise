@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="script.js" defer></script>
+  <title>Document</title>
+</head>
+<body>
+ <div class="p-5">
+  <!-- Controls -->
+  <div class="mb-4 flex gap-3">
+    <input 
+      type="number" 
+      id="sizeInput" 
+      placeholder="Grid size"
+      class="border p-2"
+    >
+    <button 
+      id="resetBtn"
+      class="bg-black text-white px-4 py-2"
+    >
+      Reset
+    </button>
+  </div>
+
+  <!-- Grid Container -->
+  <div 
+    id="container" 
+    class="w-[500px] h-[500px] border grid"
+  ></div>
+</div>
+
+</body>
+</html>
