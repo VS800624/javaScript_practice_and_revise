@@ -20,6 +20,7 @@
 
 // 1 <= n <= 250
 
+
 var countTriples = function(n) {
     let count = 0
     for(let i=1;i<=n-2;i++){
@@ -32,5 +33,8 @@ var countTriples = function(n) {
     }
     return count
 };
+
+
+
 
 console.log(countTriples(10))
