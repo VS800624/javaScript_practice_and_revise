@@ -2,8 +2,6 @@
 
 // Return the length of the longest substring containing the same letter you can get after performing the above operations.
 
- 
-
 // Example 1:
 
 // Input: s = "ABAB", k = 2
@@ -16,7 +14,6 @@
 // Explanation: Replace the one 'A' in the middle with 'B' and form "AABBBBA".
 // The substring "BBBB" has the longest repeating letters, which is 4.
 // There may exists other ways to achieve this answer too.
- 
 
 // Constraints:
 
@@ -24,42 +21,65 @@
 // s consists of only uppercase English letters.
 // 0 <= k <= s.length
 
+// var characterReplacement = function(s, k) {
+//     let map = {}
+//     let i = j = 0
+//     let maxWindow = 0
+//     map[s[0]] = 1
+//     while(j<s.length){
+//       if(validWindow(map,k)){
+//         maxWindow = Math.max(maxWindow, j-i+1)
+//         j++
+//         map[s[j]] = !map[s[j]] ? 1 : ++map[s[j]]
+//       } else {
+//         --map[s[i]]
+//         i++
+//       }
+//     }
+//     return maxWindow
+// };
 
-var characterReplacement = function(s, k) {
-    let map = {}
-    let i = j = 0
-    let maxWindow = 0
-    map[s[0]] = 1
-    while(j<s.length){
-      if(validWindow(map,k)){
-        maxWindow = Math.max(maxWindow, j-i+1)
-        j++
-        map[s[j]] = !map[s[j]] ? 1 : ++map[s[j]]
-      } else {
-        --map[s[i]]
-        i++
-      }
-    }
-    return maxWindow
-};
+// function validWindow(map,k){
+//   let totalCount = 0
+//   let maxCount = 0
+//   for(let i =0; i<26; i++){
+//     // 65 -> A , 97 -> a
+//     let char = String.fromCharCode(i+65)
+//     if(map[char]){
+//       totalCount = totalCount + map[char]
+//       maxCount = Math.max(map[char], maxCount)
+//     }
+//   }
+//   return (totalCount - maxCount <= k)
+// }
 
-function validWindow(map,k){
-  let totalCount = 0
-  let maxCount = 0
-  for(let i =0; i<26; i++){
-    // 65 -> A , 97 -> a
-    let char = String.fromCharCode(i+65)
-    if(map[char]){
-      totalCount = totalCount + map[char]
-      maxCount = Math.max(map[char], maxCount)
+// or more optimized
+var characterReplacement = function (s, k) {
+  let map = Array(26).fill(0);
+  let i = (j = 0);
+  let maxWindow = 0;
+  map[s.charCodeAt(0) - 65] = 1;
+  while (j < s.length) {
+    if (isValidWindow(map, k)) {
+      maxWindow = Math.max(maxWindow, j - i + 1);
+      j++;
+      ++map[s.charCodeAt(j) - 65];
+    } else {
+      --map[s.charCodeAt(i) - 65];
+      i++;
     }
   }
-  return (totalCount - maxCount <= k)
+  return maxWindow;
+};
+
+function isValidWindow(map, k) {
+  let totalCount = 0;
+  let maxCount = 0;
+  for (let i = 0; i < 26; i++) {
+    totalCount = totalCount + map[i];
+    maxCount = Math.max(maxCount, map[i]);
+  }
+  return totalCount - maxCount <= k;
 }
 
-
-
-
-
-
-console.log(characterReplacement("AABABBA",1))
+console.log(characterReplacement("AABABBA", 1));
