@@ -4,8 +4,6 @@
 
 // Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 
- 
-
 // Example 1:
 
 // Input: prices = [7,1,5,3,6,4]
@@ -31,18 +29,30 @@
 // };
 
 //or
-var maxProfit = function(prices) {
-    let minPrice = Infinity
-    let maxProfit = 0
+// var maxProfit = function(prices) {
+//     let minPrice = Infinity
+//     let maxProfit = 0
 
-    for (let price of prices) {
-        if (price < minPrice) {
-            minPrice = price
-        } else if (price - minPrice > maxProfit) {
-            maxProfit = price - minPrice
-        }
+//     for (let price of prices) {
+//         if (price < minPrice) {
+//             minPrice = price
+//         } else if (price - minPrice > maxProfit) {
+//             maxProfit = price - minPrice
+//         }
+//     }
+//     return maxProfit
+// };
+
+var maxProfit = function (prices) {
+  let max = 0;
+  for (let i = 0; i < prices.length - 1; i++) {
+    for (let j = i + 1; j < prices.length; j++) {
+      if (prices[j] - prices[i] > max) {
+        max = Math.abs(max) + prices[j] - prices[i];
+      }
     }
-    return maxProfit
+  }
+  return max;
 };
 
-console.log(maxProfit([7,1,5,3,6,4]))
+console.log(maxProfit([7, 1, 5, 3, 6, 4]));
