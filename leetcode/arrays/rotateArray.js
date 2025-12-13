@@ -25,16 +25,39 @@
 // -231 <= nums[i] <= 231 - 1
 // 0 <= k <= 105
 
+// var rotate = function(nums, k) {
+//     // to avoid unnecessary rotation+
+//     k  = k% nums.length
+//     if(k=== 0) return nums
+// // removing elements from the last
+//     let arr = nums.slice(-k) 
+//     let rest = nums.slice(0, nums.length - k)
+//     nums.length = 0  //this willl clears the nums array
+//     nums.push(...arr, ...rest)
+//     return nums
+// };
+
+// or optimizing the solution
+
 var rotate = function(nums, k) {
-    // to avoid unnecessary rotation+
-    k  = k% nums.length
-    if(k=== 0) return nums
-// removing elements from the last
-    let arr = nums.slice(-k) 
-    let rest = nums.slice(0, nums.length - k)
-    nums.length = 0  //this willl clears the nums array
-    nums.push(...arr, ...rest)
+   k = k%nums.length
+    reverse(nums, 0, nums.length-1)
+    // console.log(nums)
+    reverse(nums,0, k-1)
+    // console.log(nums)
+    reverse(nums,k,nums.length-1)
     return nums
-};
+
+  };
+  function reverse(arr,l,r){
+    while(l<r){
+      let temp = arr[l]
+      arr[l] = arr[r]
+      arr[r] = temp
+      l++
+      r--
+    }
+  }
+
 
 console.log(rotate([1,2,3,4,5,6,7],k=3))
