@@ -7,6 +7,14 @@ function sum (n){
     return arr[n] + sum(n-1)
 }
 
+function sumArray(arr) {
+  function helper(i) {
+    if (i === arr.length) return 0
+    return arr[i] + helper(i+1)
+  }
+  return helper(0);
+}
+
 console.log(sum(arr.length -1))
 
 function sumOdd(n){

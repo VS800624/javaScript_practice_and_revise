@@ -58,4 +58,7 @@ function findSmallest(arr) {
   }, arr[0])
 }
 
+// Time complexity = O(n)
+// Space complexity = O(1)
+
 console.log(findSmallest([3,1,2,0]))
