@@ -28,26 +28,51 @@
 // 1 <= words[i].length <= 100
 // words[i] consists only of lowercase English letters.
 
+// with inbuilt methods
 // var firstPalindrome = function(words) {
 //     for (let i =0; i<words.length; i++){
-//       let reverseStr =  words[i].split().reverse().join()
+//       let reverseStr =  words[i].split("").reverse().join("")
+//       // console.log(reverseStr)
 //       if(words[i] === reverseStr){
 //         return words[i]
 //       }
 //     }
+//     return ""
 // };
 
+// without inbuilt methods
+// var firstPalindrome = function(words) {
+//   for (let i=0 ; i<words.length; i++){
+//     let reverseStr = ""
+//     for (let j = words[i].length-1; j>=0; j--){
+//      reverseStr = reverseStr + words[i][j]
+//     }
+//     if (words[i] === reverseStr){
+//       return words[i]
+//     }
+//   }  
+//   return ""
+// };
+
+// optimizing the solution
 var firstPalindrome = function(words) {
   for (let i=0 ; i<words.length; i++){
-    let reverseStr = ""
-    for (let j = words[i].length-1; j>=0; j--){
-     reverseStr = reverseStr + words[i][j]
+    let l = 0
+    let r = words[i].length -1 
+    let isPalindrome = true
+    while(l<r){
+      if(words[i][l] !== words[i][r]){
+        isPalindrome = false
+        break
+      } else {
+        l++
+        r--
+      }
     }
-    if (words[i] === reverseStr){
-      return words[i]
-    }
+    if(isPalindrome) return words[i]
   }  
   return ""
 };
+
 
 console.log(firstPalindrome(["abc","car","ada","racecar","cool"]))
