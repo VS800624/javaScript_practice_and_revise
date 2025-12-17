@@ -29,7 +29,7 @@ function print(x){
     print(++x)
 }
 
-print(1)
+// print(1)
 
 // sum of all the odd numbers in an array using recursion function
 
@@ -48,14 +48,35 @@ function sumArray(arr) {
   return helper(0);
 }
 
+console.log(sumArray([1, 2, 3, 4]))
+
 console.log(sum(arr.length -1))
 
+// function sumOdd(n){
+//     let isOdd = ((arr[n] %2) !== 0)
+//     if(n===0){
+//         return isOdd ? arr[n] : 0
+//     }
+//     return (isOdd ? arr[n] : 0 ) + sumOdd(n-1)
+// }
+
+// or
+// function sumOdd(n){
+//     if (n < 0) return 0
+
+//     if (arr[n] % 2 !== 0) {
+//         return arr[n] + sumOdd(n - 1)
+//     } else {
+//         return sumOdd(n - 1)
+//     }
+// }
+
+
+// shorter version
 function sumOdd(n){
-    let isOdd = ((arr[n] %2) !== 0)
-    if(n===0){
-        return isOdd ? arr[n] : 0
-    }
-    return (isOdd ? arr[n] : 0 ) + sumOdd(n-1)
+    if (n < 0) return 0
+    return (arr[n] % 2 !== 0 ? arr[n] : 0) + sumOdd(n - 1)
 }
+
 
 console.log(sumOdd(arr.length - 1))
