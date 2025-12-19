@@ -21,11 +21,76 @@
 // s1 and s2 consist of lowercase English letters
 // a -> 97, A-> 65
 
+// with  map
+// var checkInclusion = function(s1, s2) {
+//   if (s2.length < s1.length) return false;
+//   // s1 = s1.split('').sort().join('')
+//   // s2 = s2.split('').sort().join('')
+//   let mapS = {}
+//   let mapW = {}
+//   let window_length = s1.length
+
+//   // build initial maps
+//   for(let i=0; i<window_length; i++){
+//     // mapS[s1[i]] = (mapS[s1[i]] || 0) + 1;
+//     // mapW[s2[i]] = (mapW[s2[i]] || 0) + 1;  //or
+//     if(!mapS[s1[i]]){
+//       mapS[s1[i]] = 1
+//     } else {
+//       ++mapS[s1[i]]
+//     }
+//     if(!mapW[s2[i]]){
+//       mapW[s2[i]] = 1
+//     } else{
+//       ++mapW[s2[i]]
+//     }
+//   }
+//   let i =0
+//   let j = window_length - 1
+//   while(j<s2.length){
+//     if(isMapSame(mapS,mapW)){
+//       return true
+//     } else {
+//       // remove left character
+//       --mapW[s2[i]]
+//       if (mapW[s2[i]] === 0) {
+//       delete mapW[s2[i]];
+//     }
+//       ++i
+
+//       // move right
+//       ++j
+//       if (j < s2.length) {
+//       // mapW[s2[j]] = (mapW[s2[j]] || 0) + 1; or
+//       if(!mapW[s2[j]]){
+//         mapW[s2[j]] = 1
+//       } else{
+//         ++mapW[s2[j]]
+//       }
+// }
+//     }
+//   }
+//   return false
+// };
+
+// function isMapSame(mapS,mapW){
+//   let keys = Object.keys(mapS)
+//   for(let i =0;i<keys.length; i++){
+//     if(mapS[keys[i]] !== mapW[keys[i]]){
+//       return false
+//     }
+//   }
+//   return true
+// }
+
+
 var checkInclusion = function(s1, s2) {
   if (s2.length < s1.length) return false;
   let hashS = Array(26).fill(0)  
   let hashW = Array(26).fill(0)  
   let window_length = s1.length
+
+  // build initial maps
   for(let i=0; i<window_length; i++){
     ++hashS[s1.charCodeAt(i) - 97]
     ++hashW[s2.charCodeAt(i) - 97]
@@ -37,8 +102,10 @@ var checkInclusion = function(s1, s2) {
     if(isHashSame(hashS, hashW)){
       return true
     } else {
+        // remove left character  
       --hashW[s2.charCodeAt(i) - 97]
       ++i
+        // move right
       ++j
       ++hashW[s2.charCodeAt(j) - 97]
     }
