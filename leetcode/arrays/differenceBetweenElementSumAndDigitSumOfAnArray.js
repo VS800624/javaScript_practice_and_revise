@@ -31,19 +31,39 @@
 // 1 <= nums.length <= 2000
 // 1 <= nums[i] <= 2000
 
-var differenceOfSum = function(nums) {
+// but this is better
+// var differenceOfSum = function(nums) {
+//     let digitSum = 0
+//     let eleSum = 0
+//     for(let i =0; i< nums.length; i++){
+//         eleSum = eleSum + nums[i]
+//         let n = nums[i]
+//         while(n>0){
+//           let rem =n%10
+//           digitSum = digitSum + rem
+//           n = Math.floor(n/10)
+//         }
+//     }
+//     return Math.abs(eleSum-digitSum)
+// };
+
+// optimizing
+// Why this code is still NOT recommended
+// Even though eleSum works correctly, your code has a hidden problem.
+// We are destroying the input array
+var differenceOfSum = function (nums) {
     let digitSum = 0
     let eleSum = 0
-    for(let i =0; i< nums.length; i++){
+    for (let i = 0; i < nums.length; i++) {
         eleSum = eleSum + nums[i]
-        let n = nums[i]
-        while(n>0){
-          let rem =n%10
-          digitSum = digitSum + rem
-          n = Math.floor(n/10)
+        while (nums[i] > 0) {
+          console.log(nums[i])
+            let rem = nums[i] % 10
+            digitSum = digitSum + rem
+            nums[i] = Math.floor(nums[i] / 10)
         }
     }
-    return Math.abs(eleSum-digitSum)
+    return Math.abs(eleSum - digitSum)
 };
 
 console.log(differenceOfSum([1,15,6,3]))

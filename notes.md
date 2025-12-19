@@ -44,3 +44,31 @@ There are two main phases:
  2) Event Capturing (Trickling Phase):
  In event capturing, the event starts from the top (document) and goes down to the target element.
  To enable capturing, you must pass true as the third parameter.
+
+  # Methods that CHANGE the original array (mutable)
+    push()      // add at end
+    pop()       // remove from end
+    shift()     // remove from start
+    unshift()   // add at start
+    splice()    // add/remove/replace
+    sort()      // sort array
+    reverse()   // reverse array
+    fill()      // fill with static value
+    copyWithin()// copy part of array within itself
+
+  # Methods that DO NOT change the original array (immutable)
+      map()
+      filter()
+      reduce()
+      slice()
+      concat()
+      flat()
+      flatMap()
+      includes()
+      indexOf()
+      find()
+      findIndex()
+      some()
+      every()
+      join()
+      toString()
