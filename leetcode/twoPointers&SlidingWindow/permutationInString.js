@@ -60,9 +60,12 @@
 
 //       // move right
 //       ++j
-//       if (j < s2.length) {
+// j can cross the boundary inside the loop, even if the loop condition was safe at the start.
+// That’s why we must check again after incrementing.
+// We check j < s2.length to avoid accessing an out-of-bounds index, which would otherwise insert an invalid key into the frequency map
+//       if (j < s2.length) {  
 //       // mapW[s2[j]] = (mapW[s2[j]] || 0) + 1; or
-//       if(!mapW[s2[j]]){
+//       if(mapW[s2[j]] === undefined){
 //         mapW[s2[j]] = 1
 //       } else{
 //         ++mapW[s2[j]]
