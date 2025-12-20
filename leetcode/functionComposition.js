@@ -41,14 +41,25 @@
 // 0 <= functions.length <= 1000
 // all functions accept and return a single integer
 
+// var compose = function(functions) {
+//     return function(x) {
+//         if (functions.length === 0) return x
+//         let result = x
+//         for (let i=functions.length - 1; i>=0; i--){
+//         result = functions[i](result)
+//         }
+//     return result
+//     }
+// };
+
+// or
 var compose = function(functions) {
     return function(x) {
         if (functions.length === 0) return x
-        let result = x
-        for (let i=functions.length - 1; i>=0; i--){
-        result = functions[i](result)
+        for (let i=0; i<functions.length; i++){
+        x = functions[i](x)
         }
-    return result
+        return x
     }
 };
 
