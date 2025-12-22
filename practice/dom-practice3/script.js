@@ -14,42 +14,36 @@ const p = document.querySelector("#error")
 
 const nameRegex = /^[A-Za-z]+$/
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault()
-  // if(lname.value!== typeof "String" || fname.value !== typeof "String"){   -> this is wrong
-  //   // throw new Error("Name should be string")
-  //   p.textContent = "Input is invalid"
-  // }   
-
-    // if (fname.value.trim() === "" || lname.value.trim() === "") {
-  //   p.textContent = "Input is invalid";
-// }
-  
-  if(!nameRegex.test(fname.value) || !nameRegex.test(lname.value)){
-    // throw new Error("Name should be string")
-    p.textContent = "Input is invalid"
-    p.style.color = "red"
-  }
-  
-})
-
-
 // form.addEventListener("submit", (e) => {
-//   e.preventDefault();
+//   e.preventDefault()
+//   // if(lname.value!== typeof "String" || fname.value !== typeof "String"){   -> this is wrong
+//   //   // throw new Error("Name should be string")
+//   //   p.textContent = "Input is invalid"
+//   // }   
 
-//   let isValid = true;
-
-//   inps.forEach((input) => {
-//     if (!nameRegex.test(input.value)) {
-//       isValid = false;
-//     }
-//   });
-
-//   if (!isValid) {
-//     p.textContent = "Input is invalid";
-//     p.style.color = "red";
-//   } else {
-//     p.textContent = "Form submitted successfully";
-//     p.style.color = "green";
+//     // if (fname.value.trim() === "" || lname.value.trim() === "") {
+//   //   p.textContent = "Input is invalid";
+// // }
+  
+//   if(!nameRegex.test(fname.value) || !nameRegex.test(lname.value)){
+//     // throw new Error("Name should be string")
+//     p.textContent = "Input is invalid"
+//     p.style.color = "red"
 //   }
-// });
+  
+// })
+
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+ for (let i =0; i<inps.length; i++){
+  if(inps[i].value.trim() === ""){
+    p.textContent = "Error, some fields are blank";
+    p.style.color = "red";
+  }else {
+    p.textContent = "Form submitted successfully";
+    p.style.color = "green";
+  }
+ }
+});
