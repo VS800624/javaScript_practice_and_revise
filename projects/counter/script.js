@@ -17,7 +17,6 @@ let count = 0
 // }
 
 
-
 const display = document.querySelector("#count")
 const incBtn = document.querySelector("#inc")
 const decBtn = document.querySelector("#dec")
@@ -29,10 +28,9 @@ incBtn.addEventListener("click", () => {
 })
 
 decBtn.addEventListener("click", () => {
-//   if(count <1) {
-//   count = 1
-// }
+  if(count >0) {
   count--
+}
   display.innerText = count
 })
 
