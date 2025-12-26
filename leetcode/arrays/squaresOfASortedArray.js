@@ -21,26 +21,44 @@
 // nums is sorted in non-decreasing order.
 
 //bubble sort
-var sortedSquares = function(nums) {
+// var sortedSquares = function(nums) {
 
-  for(let i=0;i<nums.length; i++){
-    nums[i] = nums[i] * nums[i]
-  }
+//   for(let i=0;i<nums.length; i++){
+//     nums[i] = nums[i] * nums[i]
+//   }
   
-  for(let i=0;i<nums.length;i++){
-    let isSwapped = true
-    for(j=0;j<nums.length-1;j++){
-      if(nums[j]> nums[j+1]){
-        let temp = nums[j]
-        nums[j] = nums[j+1]
-        nums[j+1] = temp
-        isSwapped = true
-      }
+//   for(let i=0;i<nums.length;i++){
+//     let isSwapped = false
+//     for(j=0;j<nums.length-1;j++){
+//       if(nums[j]> nums[j+1]){
+//         let temp = nums[j]
+//         nums[j] = nums[j+1]
+//         nums[j+1] = temp
+//         isSwapped = true
+//       }
+//     }
+//     if(!isSwapped) break
+//   }  
+//   return nums
+// };
+
+// optimize
+var sortedSquares = function(nums) {
+  let res = []
+  let left = 0  
+  let right = nums.length-1
+ while(left<=right){
+    if(nums[left] * nums[left] > nums[right]*nums[right]){
+     res.push(nums[left]* nums[left])
+     left++
+    } else {
+      res.push(nums[right]*nums[right])
+      right--
     }
-    if(!isSwapped) break
-  }  
-  return nums
+  }
+  return res.reverse()
 };
+
 
 
 console.log(sortedSquares([-7,-3,2,3,11]))
