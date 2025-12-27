@@ -24,18 +24,47 @@
 // Explanation: [1,2,3] is the original sorted array.
 // You can rotate the array by x = 0 positions (i.e. no rotation) to make nums.
 
-var check = function(nums) {
-  let count = 0
-    for(let i=0; i<nums.length-1; i++){
-      if(nums[i] > nums[i+1]){
+// var check = function(nums) {
+//   let count = 0
+//     for(let i=0; i<nums.length-1; i++){
+//       if(nums[i] > nums[i+1]){
+//         count++
+//       } 
+//     }
+//     if(count >1) return false
+//     if(count === 1 && nums[0] < nums[nums.length-1]) {
+//       return false
+//     } else {
+//       return true
+//     }
+//   }
+
+// or
+// var check = function (nums) {
+//     let count = 0
+//     for (let i = 0; i < nums.length - 1; i++) {
+//         if (nums[i] > nums[i + 1]) {
+//             count++
+//         }
+//         if (count > 1) return false
+//         if (count === 1 && nums[0] < nums[nums.length - 1]) {
+//             return false
+//         }
+//     }
+//     return true
+// }
+
+  //optimize (best solution)
+  var check = function(nums){
+    let count = 0
+    let n = nums.length
+    for(let i=0; i<n; i++){
+      if(nums[i]> nums[(i+1)%n]){
         count++
-      } 
+      }
+      if(count>1) return false
     }
-    if(count >1) return false
-    if(count === 1 && nums[0] < nums[nums.length-1]) {
-      return false
-    } else {
-      return true
-    }
+     return true
   }
+  
 console.log(check( [2,1,3,4]))
