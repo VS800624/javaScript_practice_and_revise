@@ -47,6 +47,34 @@
 //     return count
 // };
 
+//optimize with binary search
+var countNegatives = function(grid) {
+    let count = 0
+    const rows = grid.length;
+    const cols = grid[0].length
+    
+    for(let i=0; i<rows; i++){
+      let low = 0
+      let high = cols -1
+      let firstNegativeIndex = cols       //default: no negatives
+
+      while(low<=high){
+        let mid =   low + Math.floor(high-low/2)
+        // let mid =   Math.floor(high+low/2)
+        
+        if(grid[i][mid]<0){
+          firstNegativeIndex = mid  // possible answer 
+          high = mid - 1            // search left side
+        } else {
+          low  = mid + 1            // search right side
+        }
+        
+      }
+      count = count + cols - firstNegativeIndex
+    }
+    
+    return count
+};
 
 
 console.log(countNegatives([[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]))

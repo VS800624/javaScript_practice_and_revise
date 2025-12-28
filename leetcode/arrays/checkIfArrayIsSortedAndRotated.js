@@ -59,6 +59,7 @@
     let count = 0
     let n = nums.length
     for(let i=0; i<n; i++){
+    // compare current with next (circular)
       if(nums[i]> nums[(i+1)%n]){
         count++
       }
@@ -67,4 +68,4 @@
      return true
   }
   
-console.log(check( [2,1,3,4]))
+console.log(check([2,1,3,4]))
