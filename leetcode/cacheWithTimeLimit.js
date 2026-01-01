@@ -74,9 +74,14 @@ TimeLimitedCache.prototype.set = function(key, value, duration) {
 };
 
 TimeLimitedCache.prototype.get = function(key) {
-    return this.map.has(key) ? this.map.get(key).value : -1;
+    if (this.map.has(key)) return this.map.get(key).value 
+    return  -1;
 };
 
 TimeLimitedCache.prototype.count = function() {
     return this.map.size;
 };
+
+
+
+console.log(plusOne([1,2,3]))
