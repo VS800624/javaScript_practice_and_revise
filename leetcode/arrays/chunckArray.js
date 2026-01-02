@@ -42,16 +42,20 @@
 //     return res
 // };
 
+// var chunk = function(arr, size) {
+//     let res = []
+//     let i = 0
+//     while(i<arr.length){
+//       res.push(arr.slice(i,i+size))
+//       i = i + size
+//     }
+//     return res
+// };
+
+// with recursion
 var chunk = function(arr, size) {
-    let res = []
-    let i = 0
-    while(i<arr.length){
-      res.push(arr.slice(i,i+size))
-      i = i + size
-    }
-    return res
+  if (arr.length === 0 || size<1) return []
+    return [arr.slice(0,size), ...chunk(arr.slice(size),size)]
 };
-
-
 
 console.log(chunk([8,5,3,2,6],6))
