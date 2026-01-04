@@ -45,6 +45,8 @@ var maximumWealth = function(accounts) {
     sum = 0
   }  
   return maxSum
-};
+}
+
+
 
 console.log(maximumWealth([[2,8,7],[7,1,3],[1,9,5]]))
