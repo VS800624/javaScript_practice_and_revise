@@ -40,18 +40,30 @@
 // };
 
 // with better approach (with map)
+// var twoSum = function(nums, target) {
+//     let map = {}
+//     // storing values  with index in map
+//     for(let i=0; i<nums.length ;i++){
+//       map[nums[i]] = i
+//     }
+// // finding the pair
+//     for(let i =0; i<nums.length; i++){
+//       let pairToFind = target - nums[i] 
+//       if(map[pairToFind] && i !== map[pairToFind]){
+//         return [i,map[pairToFind]]
+//       }
+//     }
+// };
+
+// optimize
 var twoSum = function(nums, target) {
     let map = {}
-    // storing values  with index in map
-    for(let i=0; i<nums.length ;i++){
-      map[nums[i]] = i
-    }
-// finding the pair
-    for(let i =0; i<nums.length; i++){
-      let pairToFind = target - nums[i] 
-      if(map[pairToFind] && i !== map[pairToFind]){
-        return [i,map[pairToFind]]
+    for(let i =0 ; i<nums.length; i++){
+      let pairToFind = target - nums[i]
+      if(map[pairToFind] !== undefined){
+        return [map[pairToFind],i]
       }
+      map[nums[i]] = i
     }
 };
 
