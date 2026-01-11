@@ -70,4 +70,4 @@ var promiseAll = function(functions) {
       })
     }
    })
-};
+};        
