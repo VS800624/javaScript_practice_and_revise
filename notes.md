@@ -72,3 +72,10 @@ There are two main phases:
       every()
       join()
       toString()
+
+Objects are usually declared with const because we don’t want to change the reference, only the data inside it.
+Objects are declared with const to prevent reassignment of the object reference while still allowing modification of its properties.
+
+const makes the reference immutable, not the object
+To make object truly immutable, you need:
+Object.freeze(obj);
