@@ -36,21 +36,39 @@
 // str1 and str2 consist of English uppercase letters
 
 // with recursion
-var gcdOfStrings = function (str1, str2) {
+// var gcdOfStrings = function (str1, str2) {
  
-  if (str1 === str2) return str1
+//   if (str1 === str2) return str1
 
-  // critical check
-  if (!str1.startsWith(str2) && !str2.startsWith(str1)) {
-    return ""
-  }
+//   // critical check
+//   if (!str1.startsWith(str2) && !str2.startsWith(str1)) {
+//     return ""
+//   }
 
-  if(str1.length > str2.length){
-    return gcdOfStrings(str1.slice(str2.length), str2)
-  } else {
-    return gcdOfStrings(str1, str2.slice(str1.length))
-  }
+//   if(str1.length > str2.length){
+//     return gcdOfStrings(str1.slice(str2.length), str2)
+//   } else {
+//     return gcdOfStrings(str1, str2.slice(str1.length))
+//   }
   
+// }
+
+// or 
+
+var gcdOfStrings = function (str1, str2) {
+  if (str1 + str2 !== str2+str1) return ""
+
+  const gcd = (a,b) => {
+    while(b!= 0 ){
+      let temp = b
+      b = a % b
+      a = temp
+    }
+    return a
+  }
+  const len = gcd(str1.length, str2.length)
+  return str1.slice(0,len)
+  // or  return str1.substring(0,len)
 }
 
 console.log(gcdOfStrings("AAAAAB","AAA"))
