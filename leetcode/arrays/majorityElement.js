@@ -34,28 +34,47 @@
 //       return Number(majority)
 // };
 
+// const majorityElement = (nums) => {
+//     let count = {}
+//     for (let i =0; i<nums.length; i++){
+//         let num = nums[i]
+//         if(count[num]){
+//             count[num] = count[num] + 1
+//         }else {
+//             count[num] = 1
+//         }
+//     }
+
+//     let max = 0
+//     let majority = 0
+//     let keys = Object.keys(count)
+//     for(let i =0; i<keys.length; i++){
+//         let key = keys[i]
+//         if(max< count[key]){
+//             max = count[key]
+//             majority = key
+//         }
+//     }
+//     return Number(majority)
+// } 
+
 const majorityElement = (nums) => {
-    let count = {}
-    for (let i =0; i<nums.length; i++){
-        let num = nums[i]
-        if(count[num]){
-            count[num] = count[num] + 1
-        }else {
-            count[num] = 1
-        }
+   let count = 0
+   let majority = nums[0]
+
+   for(let i =0; i<nums.length; i++){
+    if (count === 0){
+        majority = nums[i]
     }
 
-    let max = 0
-    let majority = 0
-    let keys = Object.keys(count)
-    for(let i =0; i<keys.length; i++){
-        let key = keys[i]
-        if(max< count[key]){
-            max = count[key]
-            majority = key
-        }
+    if (majority === nums[i]){
+        count++
+    } else {
+        count--
     }
-    return Number(majority)
+   }
+
+   return majority
 } 
 
-console.log(majorityElement([2,3,2]))
+console.log(majorityElement([2,2,1,1,1,2,2,3,3,3,3,3,3,4,5,5,5,5,5,5,5,5,5,5]))
