@@ -56,8 +56,10 @@
 // or 
 
 var gcdOfStrings = function (str1, str2) {
+  // Check if a common divisor string is possible
   if (str1 + str2 !== str2+str1) return ""
 
+  // GCD logic (Euclidean algorithm)
   const gcd = (a,b) => {
     while(b!= 0 ){
       let temp = b
