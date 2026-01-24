@@ -37,3 +37,16 @@ function singleNum(arr) {
 }
 
 console.log(singleNum([2,2,1,4,4,1,3]))
+
+// XOR is:
+// Commutative → a ^ b = b ^ a
+// Associative → (a ^ b) ^ c = a ^ (b ^ c)
+// Let’s say your array is:
+// [4, 1, 2, 1, 2]
+// You compute:
+// 0 ^ 4 ^ 1 ^ 2 ^ 1 ^ 2
+// Rearrange it (XOR order doesn’t matter):
+// (1 ^ 1) ^ (2 ^ 2) ^ 4 ^ 0
+// Now apply XOR rules:
+// 0 ^ 0 ^ 4 ^ 0 = 4
+// All duplicate pairs become 0, and only the single number remains.

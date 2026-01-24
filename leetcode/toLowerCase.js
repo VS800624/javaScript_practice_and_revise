@@ -27,21 +27,21 @@
 // };
 
 // without in-built method
-var toLowerCase = function(s) {
-  let str = ""
-    for(let i=0 ; i<s.length; i++){
-      let charCode = s.charCodeAt(i)
-        if (charCode >= 65 && charCode <= 90){
-          str = str + String.fromCharCode(charCode + 32)
-            // console.log(str)
-        } else {
-          str = str + s[i]
-        } 
-    }
-    return str
-};
+// var toLowerCase = function(s) {
+//   let str = ""
+//     for(let i=0 ; i<s.length; i++){
+//       let charCode = s.charCodeAt(i)
+//         if (charCode >= 65 && charCode <= 90){
+//           str = str + String.fromCharCode(charCode + 32)
+//             // console.log(str)
+//         } else {
+//           str = str + s[i]
+//         } 
+//     }
+//     return str
+// };
 
-console.log(toLowerCase("Hello"))
+// console.log(toLowerCase("Hello"))
 
 // MUST-KNOW ASCII RANGES
 // Type	Range
