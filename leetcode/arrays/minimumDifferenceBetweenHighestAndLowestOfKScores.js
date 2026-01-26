@@ -36,6 +36,9 @@
 // means For each group of k (i.e k can be 1 ,2,3 ) elements: difference = maximum − minimum 
 // = last element − first element of that group then we have to find the minimum difference between these difference
 var minimumDifference = function(nums, k) {
+
+  if (nums.length === 1)  return 0
+  
   // Sort the elements in ascending order
     nums = nums.sort((a,b) => a-b)
     let minDiff = Infinity
@@ -46,7 +49,7 @@ var minimumDifference = function(nums, k) {
         // Update the minimum difference found so far
         minDiff = Math.min(diff, minDiff)
     }
-    return nums.length === 1 ? 0 : minDiff
+    return minDiff
 };
 
 console.log(minimumDifference([9,4,1,7,11],3))
