@@ -18,16 +18,21 @@
 
 // The given address is a valid IPv4 address.
 
+// var defangIPaddr = function(address) {
+//   let res = ""
+//     for (let i = 0; i<address.length; i++){
+//       if (address[i] === "."){
+//         res = res + "[.]"
+//       }else {
+//         res = res + address[i] 
+//       }
+//     }
+//     return res
+// };
+
+// or 
 var defangIPaddr = function(address) {
-  let res = ""
-    for (let i = 0; i<address.length; i++){
-      if (address[i] === "."){
-        res = res + "[.]"
-      }else {
-        res = res + address[i] 
-      }
-    }
-    return res
+  return address.split(".").join("[.]")
 };
 
 console.log(defangIPaddr("255.100.50.0"))
