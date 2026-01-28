@@ -22,22 +22,35 @@
 // nums.length == 2n
 // 1 <= nums[i] <= 10^3
 
+// var shuffle = function (nums, n) {
+//   let res = [];
+//   let i = 0;
+//   let j = n;
+//   let count = 0;
+//   while (count < nums.length) {
+//     if (count % 2 === 0) {
+//       res.push(nums[i]);
+//       i++;
+//     } else {
+//       res.push(nums[j]);
+//       j++;
+//     }
+//     count++;
+//   }
+//   return res;
+// };
+
+// or
 var shuffle = function (nums, n) {
-  let res = [];
-  let i = 0;
-  let j = n;
-  let count = 0;
-  while (count < nums.length) {
-    if (count % 2 === 0) {
-      res.push(nums[i]);
-      i++;
+  let res = new Array(n * 2);
+  for (let i = 0; i < nums.length; i++) {
+    if (i % 2 === 0) {
+      res[i] = nums[i / 2];
     } else {
-      res.push(nums[j]);
-      j++;
+      res[i] = nums[n + Math.floor(i / 2)];
     }
-    count++;
   }
   return res;
 };
 
-console.log(shuffle([1, 4, 2, 3, 3, 2, 4, 1]));
+console.log(shuffle([2,3,5,4,1,7], 3));
