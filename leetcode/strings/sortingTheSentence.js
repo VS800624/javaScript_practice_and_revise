@@ -27,27 +27,60 @@
 // The words in s are separated by a single space.
 // s contains no leading or trailing spaces.
 
-var sortSentence = function(s) {
-    let words = s.split(" ")
-    console.log(words)
-  // console.log(words.sort())
-    for(let i =0; i<words.length - 1; i++){
-      for(let j = i+1; j<words.length; j++){
-          let word1 = Number(words[i][words[i].length-1])
-          let word2 = Number(words[j][words[j].length-1])
-          if(word2 < word1){
-            temp = words[i]
-            words[i] = words[j]
-            words[j] = temp 
-          }
-        }
-    }
-    // console.log(words)
+// var sortSentence = function(s) {
+//     let words = s.split(" ")
+//     console.log(words)
+//   // console.log(words.sort())
+//     for(let i =0; i<words.length - 1; i++){
+//       for(let j = i+1; j<words.length; j++){
+//           let word1 = Number(words[i][words[i].length-1])
+//           let word2 = Number(words[j][words[j].length-1])
+//           if(word2 < word1){
+//             temp = words[i]
+//             words[i] = words[j]
+//             words[j] = temp 
+//           }
+//         }
+//     }
+//     // console.log(words)
 
-    for(let i =0; i<words.length; i++){
-      words[i] = words[i].split("").filter(char => isNaN(char)).join("")
-    }
-    return words.join(" ")
+//     for(let i =0; i<words.length; i++){
+//       words[i] = words[i].split("").filter(char => isNaN(char)).join("")
+//     }
+//     return words.join(" ")
+// };
+
+
+// or with built-in method sort and regex
+// var sortSentence = function(s) {
+//   return s
+//     .split(" ")
+//     .sort((a, b) => {
+//       return Number(a[a.length - 1]) - Number(b[b.length - 1]);
+//     })
+//     .map(word => word.replace(/\d/g, ""))
+//     .join(" ");
+// };
+
+
+// or without regex:
+var sortSentence = function(s) {
+  return s
+    .split(" ")
+    .sort((a, b) => {
+      return Number(a[a.length - 1]) - Number(b[b.length - 1]);
+    })
+    .map(word => {
+      let result = "";
+      for (let ch of word) {
+        if (ch < '0' || ch > '9') {
+          result += ch;
+        }
+      }
+      return result;
+    })
+    .join(" ");
 };
+
 
 console.log(sortSentence("is2 sentence4 This1 a3"))
