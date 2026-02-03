@@ -48,3 +48,7 @@ for word in words:
     new_words.append(new_word)
 
 print(" ".join(new_words))
+
+# "separator".join(iterable)
+# separator → what you want between elements
+# iterable → list / tuple / generator of strings

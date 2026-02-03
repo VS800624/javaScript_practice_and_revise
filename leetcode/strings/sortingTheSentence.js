@@ -31,6 +31,7 @@
 //     let words = s.split(" ")
 //     console.log(words)
 //   // console.log(words.sort())
+// // Sort words based on the last digit
 //     for(let i =0; i<words.length - 1; i++){
 //       for(let j = i+1; j<words.length; j++){
 //           let word1 = Number(words[i][words[i].length-1])
@@ -43,7 +44,7 @@
 //         }
 //     }
 //     // console.log(words)
-
+// //  Remove digits from each word
 //     for(let i =0; i<words.length; i++){
 //       words[i] = words[i].split("").filter(char => isNaN(char)).join("")
 //     }
