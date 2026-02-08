@@ -41,4 +41,3 @@ if valid and len(stack) == 0:
     print(True)
 else:
     print(False)
-
