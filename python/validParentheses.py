@@ -41,3 +41,35 @@ if valid and len(stack) == 0:
     print(True)
 else:
     print(False)
+
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        n = len(s)
+        if n <= 1:
+            return False
+
+        stack = []
+
+        brackets = {
+            "{": "}",
+            "[": "]",
+            "(": ")"
+        }
+
+        for ch in s:
+            if ch in brackets:          # opening bracket
+                stack.append(ch)
+           # if ch in brackets.values():
+            #  print("This is a closing bracket")
+
+            else:                      # closing bracket
+                if not stack:
+                    return False
+
+                top = stack.pop()
+
+                if brackets[top] != ch:
+                    return False
+
+        return len(stack) == 0
