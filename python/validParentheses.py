@@ -21,7 +21,7 @@ print(result)
 
 s = input().strip()
 n = len(s)
-if n == 1: print(False)
+if n == 0 or n == 1: print(False)
 valid = True
 
 stack = []
@@ -41,3 +41,4 @@ if valid and len(stack) == 0:
     print(True)
 else:
     print(False)
+
