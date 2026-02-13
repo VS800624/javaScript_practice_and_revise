@@ -43,3 +43,21 @@ class Solution:
 ans = Solution()
 res = ans.longestBalanced("abbac")
 print(res)
+
+n = int(input())
+s = input()
+ans = 0
+
+for i in range(n):
+    freq = {}
+    for j in range(i,n):
+        ch = s[j]
+        if ch not in freq:
+          freq[ch] = 1
+        else:
+          freq[ch] += 1 
+        
+        values = list(freq.values())
+        if len(set(values)) == 1:
+            ans = max(ans, j - i + 1)
+print(ans)
