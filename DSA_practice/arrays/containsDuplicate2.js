@@ -41,6 +41,16 @@
 // };
 
 // or
-
+var containsNearbyDuplicate = function (nums, k) {
+    let map = {}
+    for (let i = 0; i < nums.length; i++) {
+        if (map[nums[i]] !== undefined) {
+            let lastIndex = map[nums[i]]
+            if (i - lastIndex <= k) return true
+        }
+        map[nums[i]] = i
+    }
+    return false
+};
 
 console.log(containsNearbyDuplicate([1,2,3,1],3))
