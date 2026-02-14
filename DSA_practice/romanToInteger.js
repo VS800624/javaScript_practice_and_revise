@@ -42,6 +42,29 @@
 // s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 // It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 
+// var romanToInt = function(s) {
+//     let map = {
+//         "I" : 1,
+//         "V" : 5,
+//         "X" : 10,
+//         "L" : 50,
+//         "C" : 100,
+//         "D" : 500,
+//         "M" : 1000
+//     }
+//     let ans = 0
+//     for (let i =0 ; i<s.length-1; i++){
+//         if (map[s[[i]]] < map[s[i+1]]){
+//             ans -= map[s[i]]
+//         }else{
+//             ans += map[s[i]]
+//         }
+//     }
+//     return ans + map[s[s.length-1]]
+// }
+
+// or
+
 var romanToInt = function(s) {
     let map = {
         "I" : 1,
@@ -53,14 +76,15 @@ var romanToInt = function(s) {
         "M" : 1000
     }
     let ans = 0
-    for (let i =0 ; i<s.length-1; i++){
-        if (map[s[[i]]] < map[s[i+1]]){
-            ans -= map[s[i]]
-        }else{
-            ans += map[s[i]]
-        }
+    s = s.replace("IV", "IIII")
+    s = s.replace("IX","VIIII")
+    s = s.replace("XC", "LXXXX") 
+    s = s.replace("CD", "CCCC")
+    s = s.replace("CM", "DCCCC")
+    for (let i =0; i<s.length; i++){
+        ans += map[s[i]]
     }
-    return ans + map[s[s.length-1]]
+    return ans 
 }
 
 console.log(romanToInt("MCMXCIV"))
