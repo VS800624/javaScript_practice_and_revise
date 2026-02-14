@@ -13,3 +13,18 @@ class Solution:
             
         return False
     
+n = int(input())
+nums = list(map(int, input().split()))
+k = int(input())
+containsDup = False
+
+mp = {}
+for i in range(n):
+    if nums[i] in mp:
+        lastIndex = mp[nums[i]]
+        if i - lastIndex <=k :
+            containsDup = True
+            break
+      
+    mp[nums[i]] = i
+print(containsDup)

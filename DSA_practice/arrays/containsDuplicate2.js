@@ -44,7 +44,7 @@
 var containsNearbyDuplicate = function (nums, k) {
     let map = {}
     for (let i = 0; i < nums.length; i++) {
-        if (map[nums[i]] !== undefined) {
+        if (map[nums[i]] !== undefined) {  // if (nums[i] in map)
             let lastIndex = map[nums[i]]
             if (i - lastIndex <= k) return true
         }
