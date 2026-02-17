@@ -25,3 +25,4 @@ for ch in columnTitle:
     value = ord(ch) - 64    # A=1, B=2, ..., Z=26
     res = res* 26 + value
 print(res)
+
