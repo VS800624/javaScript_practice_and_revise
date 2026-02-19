@@ -21,6 +21,20 @@
 #         return total == num
 
 
+num = int(input())
+if num<=1 :
+    print(False)
+
+total = 1
+
+for i in range(2,int(num**0.5)+1):
+    if num%i == 0:
+        total += i
+        other  = num // i
+        if other != num and other != i:
+            total += other
+        
+print(total == num)
 
 class Solution:
     def checkPerfectNumber(self, num: int) -> bool:
