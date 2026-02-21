@@ -73,3 +73,41 @@ class Solution:
                     return False
 
         return len(stack) == 0
+
+s = input().strip()
+
+n = len(s)
+
+if n <= 1:
+    print(False)
+else:
+
+    stack = []
+
+    brackets = {
+        "{": "}",
+        "[": "]",
+        "(": ")"
+    }
+
+    isValid = True
+
+    for ch in s:
+        if ch in brackets:          # opening bracket
+            stack.append(ch)
+
+        else:                      # closing bracket
+            if not stack:
+                isValid = False
+                break
+
+            top = stack.pop()
+
+            if brackets[top] != ch:
+                isValid = False
+                break
+
+    if stack:      # stack not empty
+        isValid = False
+
+    print(isValid)
