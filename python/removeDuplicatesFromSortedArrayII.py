@@ -10,4 +10,9 @@ class Solution:
                 j += 1
             else:
                 j += 1  
+        print(nums)
         return i
+
+ans  = Solution()
+res= ans.removeDuplicates([0,0,1,1,1,1,2,3,3])
+print(res)
