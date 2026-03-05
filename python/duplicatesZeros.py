@@ -20,3 +20,4 @@ ans = Solution()
 res = ans.duplicateZeros([1,0,2,3,0,4,5,0])
 print(res)
 
+# or more optimized
