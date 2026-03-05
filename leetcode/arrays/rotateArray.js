@@ -37,14 +37,24 @@
 //     return nums
 // };
 
+// or 
+// var rotate = function (nums, k) {
+//     k = k % nums.length
+//     for (let i = 0; i < k; i++) {
+//         let ele = nums.pop()
+//         nums.splice(0, 0, ele)
+//     }
+//     return nums
+// };
+
 // or optimizing the solution
 
 var rotate = function(nums, k) {
    k = k%nums.length
     reverse(nums, 0, nums.length-1)
-    // console.log(nums)
+    console.log(nums)
     reverse(nums,0, k-1)
-    // console.log(nums)
+    console.log(nums)
     reverse(nums,k,nums.length-1)
     return nums
 
