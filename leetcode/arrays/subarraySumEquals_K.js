@@ -1,8 +1,8 @@
 // Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.
 
-// A subarray is a contiguous non-empty sequence of elements within an array.
+const { subarraySum } = require("./longestSubarrayWithSumK");
 
- 
+// A subarray is a contiguous non-empty sequence of elements within an array.
 
 // Example 1:
 
@@ -12,7 +12,6 @@
 
 // Input: nums = [1,2,3], k = 3
 // Output: 2
- 
 
 // Constraints:
 
@@ -20,19 +19,41 @@
 // -1000 <= nums[i] <= 1000
 // -107 <= k <= 107
 
+// var subarraySum = function (nums, k) {
+//   let res = 0;
+//   let n = nums.length;
+//   for (let i = 0; i < n; i++) {
+//     let sum = 0;
+//     for (let j = i; j < n; j++) {
+//       sum += nums[j];
+//       if (sum === k) {
+//         res++;
+//       }
+//     }
+//   }
+//   return res;
+// };
+
+// or more optimized
 var subarraySum = function (nums, k) {
-    let res = 0
-    let n = nums.length
-    for (let i = 0; i < n; i++) {
-        let sum = 0
-        for (let j = i; j < n; j++) {
-            sum += nums[j]
-            if (sum === k) {
-                res++
-            }
-        }
+  let sum = 0;
+  let count = 0;
+  let map = { 0: 1 };
+  for (let i = 0; i < nums.length; i++) {
+    sum += nums[i];
+    if (map[sum - k]) {
+      count += map[sum - k];
     }
-    return res
+
+    // map[sum] = (map[sum] || 0) + 1; //or
+    if (!map[sum]) {
+      map[sum] = 1;
+    } else {
+      map[sum]++;
+    }
+  }
+
+  return count;
 };
 
-console.log(subarraySum([1,2,1,2,1],3))
+console.log(subarraySum([1, 2, 1, 2, 1], 3));

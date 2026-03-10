@@ -66,7 +66,7 @@
 //   return res;
 // }
 
-// or with hashmap better solution
+// or with hashmap better solution (work for any numbers)
 // function longestSubarray(arr, k) {
 //   const preSumMap = new Map()
 //   let sum = 0;
@@ -83,7 +83,7 @@
 //     if (preSumMap.has(rem)) {
 //       let len = i  - preSumMap.get(rem)
 //       maxLen = Math.max(maxLen, len)
-//     } 
+//     }
 //     // store if prefix sum only first time
 //     if(!preSumMap.has(sum)){
 //       preSumMap.set(sum,i)
@@ -92,24 +92,26 @@
 //   return maxLen;
 // }
 
-// best solution
+// best solution (but  work for only positive numbers)
 function longestSubarray(arr, k) {
-  let left = right = 0
-  let  sum = arr[0]
-  let maxLen = 0
-  while(right < arr.length){
-    while(left <= right && sum > k){
-      sum -= arr[left]
-      left++
+  let left = (right = 0);
+  let sum = arr[0];
+  let maxLen = 0;
+  while (right < arr.length) {
+    while (left <= right && sum > k) {
+      sum -= arr[left];
+      left++;
     }
-    if (sum == k){
-      maxLen = Math.max(maxLen, right - left + 1)
+    if (sum == k) {
+      maxLen = Math.max(maxLen, right - left + 1);
     }
-    right++
-    if (right < arr.length) sum += arr[right]
+    right++;
+    if (right < arr.length) {
+      sum += arr[right];
+    }
   }
   return maxLen;
 }
 
+console.log(longestSubarray([1, 2, 3, 1, 3, 4, 5, 6, 7, 1, 2, 4], 6)); 
 
-console.log(longestSubarray([1,2,3,1,3,4,5,6,7,1,2,4], 6));
