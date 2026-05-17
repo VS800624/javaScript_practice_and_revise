@@ -1,15 +1,15 @@
 var mostCommonWord = function(paragraph, banned) {
     paragraph = paragraph.toLowerCase().replace(/[^\w\s]/g, "");
-    let arr = paragraph.split("")
-    let st = new set(banned)
+    let arr = paragraph.split(" ")
+    let st = new Set(banned)
 
     let count = 0
     let mp = {}
     let ans = 0
 
-    for (word in arr){
-        if (!word in st){
-            if(!word in mp){
+    for (let word of arr){
+        if (!st.has(word)){
+            if(!(word in mp)){
                 mp[word] = 1
             }else {
                 mp[word] += 1
