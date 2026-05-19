@@ -22,19 +22,37 @@
 // 1 <= nums1[i], nums2[j] <= 109
 // Both nums1 and nums2 are sorted in non-decreasing order.
 
-var getCommon = function(nums1, nums2) {
-    let set = new Set(nums1)
-    let result = 0
-    for (let i=0; i<nums2.length; i++){
-        if(set.has(nums2[i])){
-            result = nums2[i]
-            break
+// using set
+// var getCommon = function(nums1, nums2) {
+//     let set = new Set(nums1)
+//     let result = 0
+//     for (let i=0; i<nums2.length; i++){
+//         if(set.has(nums2[i])){
+//             result = nums2[i]
+//             break
+//         }
+//     } 
+//     if (result ==0){
+//         return -1
+//     }
+//     return result
+// };
+
+// using two-pointers more optimized
+
+var getCommon = function (nums1, nums2) {
+    let j = 0
+    let i = 0
+    while (i < nums1.length & j < nums2.length) {
+        if (nums1[i] === nums2[j]) {
+            return nums1[i]
+        } else if (nums1[i] > nums2[j]) {
+            j++
+        } else {
+            i++
         }
-    } 
-    if (result ==0){
-        return -1
     }
-    return result
+    return -1
 };
 
 let res = getCommon([1,2,3],[2,4])
