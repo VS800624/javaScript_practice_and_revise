@@ -25,8 +25,9 @@ var findThePrefixCommonArray = function(A, B) {
        }
        res[i] = count
     }
+    console.log(freq);
     return res
 };
 
-const ans = findThePrefixCommonArray([1,3,2,4],[3,1,2,4])
+const ans = findThePrefixCommonArray([2,3,1],[3,1,2])
 console.log(ans);
